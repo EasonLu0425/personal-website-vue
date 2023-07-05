@@ -17,9 +17,9 @@ const routes = [
     component: () => import('../views/Skills')
   },
   {
-    path:'/workexp',
-    name:'work-experience',
-    component: () => import('../views/WorkExp')
+    path:'/careers',
+    name:'careers',
+    component: () => import('../views/Careers')
   },
   {
     path:'/academic',

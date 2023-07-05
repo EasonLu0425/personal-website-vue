@@ -1,10 +1,7 @@
 <template>
   <div class="scroll-container">
-    <div class="scroll-item name">
+    <section class="scroll-item name-part" id="namePart" ref="namePart">
       <div class="first-page">
-        <div class="name-wrapper">
-          <p class="name">Eason,</p>
-        </div>
         <div class="pics-wrapper">
           <img
             class="hero-pics"
@@ -31,166 +28,757 @@
             style="width: 100px; height: 100px"
           />
         </div>
+        <div class="name-wrapper">
+          <p class="name">Eason,</p>
+        </div>
+        <div class="scroll">
+          <svg
+            width="40px"
+            height="100%"
+            viewBox="0 0 247 390"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            style="
+              fill-rule: evenodd;
+              clip-rule: evenodd;
+              stroke-linecap: round;
+              stroke-linejoin: round;
+              stroke-miterlimit: 1.5;
+            "
+          >
+            <path
+              id="wheel"
+              d="M123.359,79.775l0,72.843"
+              style="fill: none; stroke: #fff; stroke-width: 20px"
+            />
+            <path
+              id="mouse"
+              d="M236.717,123.359c0,-62.565 -50.794,-113.359 -113.358,-113.359c-62.565,0 -113.359,50.794 -113.359,113.359l0,143.237c0,62.565 50.794,113.359 113.359,113.359c62.564,0 113.358,-50.794 113.358,-113.359l0,-143.237Z"
+              style="fill: none; stroke: #fff; stroke-width: 20px"
+            />
+          </svg>
+          <div style="color: white">Scroll down</div>
+        </div>
       </div>
-    </div>
-    <div class="scroll-item">
+    </section>
+    <section
+      class="scroll-item welcome-part"
+      id="welcome-part"
+      ref="welcomePart"
+    >
+      <p class="welcome">Welcome</p>
+      <p class="welcome">To My</p>
+      <p class="welcome">World</p>
+    </section>
+    <section class="scroll-item intro-part" ref="introPart">
       <div class="intro">
-        <img src="" alt="圖片" />
-        <p>自我介紹一些，巴拉巴拉巴拉</p>
+        <img
+          class="avatar"
+          src="https://images.unsplash.com/photo-1579546928686-286c9fbde1ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=639&q=80"
+          alt="圖片"
+        />
+        <div class="intro-text-wrapper">
+          <div class="text-container">
+            <div class="intro-text first" ref="introTextFirst">
+              <div class="intro-text-one">I'm Eason Lu</div>
+              <div class="intro-text-two">
+                Marketing, Creative Designer & AWWWARDS Young Jury.
+              </div>
+              <div class="intro-text-three">
+                As a Creative Director, I have accumulated experience crafting
+                visually stunning and engaging digital experiences. With a
+                passion for design and a keen eye for detail, I specialize in
+                translating complex ideas into simple, elegant solutions that
+                capture the essence of a brand.
+              </div>
+            </div>
+            <div class="intro-text second" ref="introTextSecond">
+              <div class="intro-text-one">B1</div>
+              <div class="intro-text-two">B2</div>
+              <div class="intro-text-three">B3</div>
+            </div>
+            <div class="intro-text third" ref="introTextThird">
+              <div class="intro-text-one">C1</div>
+              <div class="intro-text-two">C2</div>
+              <div class="intro-text-three">C3</div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="scroll-item">Item 3</div>
-    <div class="scroll-item">Item 4</div>
+    </section>
+    <section class="scroll-item contact-part">
+      <div class="giving">
+        I'm Here To Give You
+        <div class="adj">Unique</div>
+        Experience
+      </div>
+      <div class="more" ref="more">
+        <h1>Learn More About Me</h1>
+        <div class="me-container" ref="meContainer">
+          <div class="me one">#Skills</div>
+          <div class="me two">#Careers</div>
+          <div class="me three">#Acedemics</div>
+          <div class="me four">#Projects</div>
+        </div>
+      </div>
+    </section>
+    <Footer />
   </div>
 </template>
 
 <script>
-import AOS from "aos";
-import "aos/dist/aos.css";
-export default {};
-AOS.init({
-  duration: 3000,
-});
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Footer from "./../components/Footer.vue";
+
+export default {
+  mounted() {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(".name-part", {
+      filter: "blur(20px)",
+      duration: 1,
+      scrollTrigger: {
+        trigger: this.$refs.welcomePart,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+
+    const introTexts = [
+      this.$refs.introTextFirst,
+      this.$refs.introTextSecond,
+      this.$refs.introTextThird,
+    ];
+
+    const screen = window.innerWidth;
+
+    gsap.set(".me", { opacity: 0, x: -100 });
+    const meTL = gsap.timeline({
+        scrollTrigger:{
+          trigger: this.$refs.more,
+
+        }
+      });
+
+      meTL
+        .to(".one", {
+          opacity: 1,
+          x: 0,
+        })
+        .to(".two", {
+          opacity: 1,
+          x: 0,
+        })
+        .to(".three", {
+          opacity: 1,
+          x: 0,
+        })
+        .to(".four", {
+          opacity: 1,
+          x: 0,
+        });
+
+    if (screen >= 992) {
+      introTexts.forEach((introText) => {
+        for (let i = 0; i < introText.children.length; i++) {
+          gsap.set(introText.children[i], {
+            y: "100%",
+            opacity: "0",
+          });
+        }
+      });
+      const scrollTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".intro-part",
+          scrub: true,
+          start: "top top",
+          end: "bottom top",
+          pin: true,
+        },
+      });
+      scrollTL
+        .to(introTexts[0].children[0], {
+          y: "0%",
+          opacity: "1",
+          duration: 1,
+        })
+        .to(
+          introTexts[0].children[1],
+          {
+            y: "0%",
+            opacity: "1",
+            duration: 1,
+          },
+          "-=0.25"
+        )
+        .to(
+          introTexts[0].children[2],
+          {
+            y: "0%",
+            opacity: "1",
+            duration: 1,
+          },
+          "-=0.25"
+        )
+        .to(
+          introTexts[0].children[0],
+          {
+            y: "100%",
+            opacity: "0",
+            delay: 0.5,
+            duration: 1,
+          },
+          "-=0.25"
+        )
+        .to(
+          introTexts[1].children[0],
+          {
+            y: "0%",
+            opacity: "1",
+            duration: 1,
+          },
+          "-=0.25"
+        )
+        .to(
+          introTexts[0].children[1],
+          {
+            y: "100%",
+            opacity: "0",
+            duration: 1,
+          },
+          "-=0.25"
+        )
+        .to(
+          introTexts[1].children[1],
+          {
+            y: "0%",
+            opacity: "1",
+            duration: 1,
+          },
+          "-=0.25"
+        )
+        .to(
+          introTexts[0].children[2],
+          {
+            y: "100%",
+            opacity: "0",
+            duration: 1,
+          },
+          "-=0.25"
+        )
+        .to(
+          introTexts[1].children[2],
+          {
+            y: "0%",
+            opacity: "1",
+            duration: 1,
+          },
+          "-=0.25"
+        )
+        .to(
+          introTexts[1].children[0],
+          {
+            y: "100%",
+            opacity: "0",
+            delay: 1,
+            duration: 1,
+          },
+          "-=0.25"
+        )
+        .to(
+          introTexts[2].children[0],
+          {
+            y: "0%",
+            opacity: "1",
+            duration: 1,
+          },
+          "-=0.25"
+        )
+        .to(
+          introTexts[1].children[1],
+          {
+            y: "100%",
+            opacity: "0",
+            duration: 1,
+          },
+          "-=0.25"
+        )
+        .to(
+          introTexts[2].children[1],
+          {
+            y: "0%",
+            opacity: "1",
+            duration: 1,
+          },
+          "-=0.25"
+        )
+        .to(
+          introTexts[1].children[2],
+          {
+            y: "100%",
+            opacity: "0",
+            duration: 1,
+          },
+          "-=0.25"
+        )
+        .to(
+          introTexts[2].children[2],
+          {
+            y: "0%",
+            opacity: "1",
+            duration: 1,
+          },
+          "-=0.25"
+        );
+
+    } else {
+      introTexts.forEach((introText) => {
+        for (let i = 0; i < introText.children.length; i++) {
+          gsap.set(introText.children[i], { y: "50%" });
+          ScrollTrigger.create({
+            trigger: introText.children[i],
+            start: "top 90%",
+            end: "top center",
+            scrub: true,
+            pinSpacing: 0,
+            onEnter: () => {
+              gsap.to(introText.children[i], { y: "0%", duration: 0.5 });
+            },
+          });
+        }
+      });
+    }
+  },
+  components: {
+    Footer,
+  },
+};
 </script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Manrope:wght@200;400;500;700&family=Noto+Sans:wght@500;700&family=Nunito+Sans:wght@400;700&display=swap");
 
 .scroll-container {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+  /* 整個頁面高度 */
+  height: 300vh;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+}
+
+section {
   height: 100vh;
 }
 
 .scroll-item {
-  scroll-snap-align: center;
   height: 100%;
 }
 
 .first-page {
   position: relative;
+  top: 0;
+  animation: nameup 1s forwards 0.5s;
+  transform-style: preserve-3d;
+  /* height: 200vh; */
 }
 
 .name-wrapper {
-  opacity: 0;
-  z-index: 5;
+  z-index: 1;
   width: 100vw;
   height: 100vh;
-  -webkit-backdrop-filter: blur(200px);
-  background-color: rgba(0, 0, 0, 0.86);
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: nameup 1s forwards 0.5s;
+  animation: backgroundup 1s forwards 0.5s;
+  opacity: 0;
 }
 
 .name {
-  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
-    rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
-  transform-style: preserve-3d;
-  z-index: 10;
   font-size: 15rem;
   line-height: 1.1;
   font-weight: 400;
-  margin-top: 0rem;
-  margin-bottom: 0rem;
   font-family: Manrope, sans-serif;
+  opacity: 1;
   color: white;
 }
 
 .pics-wrapper {
-  z-index: 1;
+  z-index: -2;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  animation: headsup 1s;
+  top: 0%;
+  left: 0%;
+  height: 100vh;
+  width: 100vw;
 }
 
 .hero-pics {
   position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translate(-100%, -100%);
+  transform: translate(-50%, 100px);
 }
 
 .pics-wrapper img:nth-child(1) {
-  animation: scatter1 1s 1s forwards;
+  animation-name: headsup, scatter1;
+  animation-duration: 1s, 1.3s;
+  animation-fill-mode: forwards, forwards;
+  animation-delay: 0s, 0.5s;
 }
 
 .pics-wrapper img:nth-child(2) {
-  animation: scatter2 1s 1s forwards;
+  animation-name: headsup, scatter2;
+  animation-duration: 1s, 1.3s;
+  animation-fill-mode: forwards, forwards;
+  animation-delay: 0.01s, 0.5s;
 }
 
 .pics-wrapper img:nth-child(3) {
-  animation: scatter3 1s 1s forwards;
+  animation-name: headsup, scatter3;
+  animation-duration: 1s, 1.3s;
+  animation-fill-mode: forwards, forwards;
+  animation-delay: 0.02s, 0.5s;
 }
 
 .pics-wrapper img:nth-child(4) {
-  animation: scatter4 1s 1s forwards;
+  animation-name: headsup, scatter4;
+  animation-duration: 1s, 1.3s;
+  animation-fill-mode: forwards, forwards;
+  animation-delay: 0.03s, 0.5s;
+}
+
+.scroll {
+  position: absolute;
+  top: 70%;
+  right: 15%;
+  opacity: 0;
+  animation: backgroundup 1s forwards 2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+svg #wheel {
+  animation: scroll ease 1.5s infinite;
+}
+
+.name-part {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.welcome-part {
+  position: relative;
+  top: 0;
+  height: auto;
+  padding-bottom: 20vh;
+  /* width: 100vw; */
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome {
+  z-index: 2;
+  font-size: 16vw;
+  line-height: 0.9;
+  font-weight: 700;
+  color: white;
+}
+
+.welcome:nth-child(2) {
+  z-index: 2;
+  font-size: 16vw;
+  line-height: 0.9;
+  font-weight: 400;
+  color: white;
+}
+
+.intro-part {
+  height: auto;
+  position: relative;
+  top: 0;
+  background-color: #000000;
 }
 
 .intro {
   height: 100%;
+  margin-top: auto;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 6rem;
+  color: white;
+  /* background-color: #e0e0e0; */
+}
+
+.avatar {
+  height: 100%;
+  width: 100%;
+}
+
+.intro-text-wrapper {
+  padding: 2rem;
+}
+
+.intro-text {
+  padding-top: 4rem;
+  margin-bottom: 3rem;
+}
+
+.intro-text-one {
+  font-size: 12px;
+  margin-bottom: 4vh;
+  border: 2px solid red;
+}
+
+.intro-text-two {
+  font-size: 24px;
+  margin-bottom: 4vh;
+  border: 2px solid blue;
+}
+
+.intro-text-three {
+  font-size: 18px;
+  padding-left: 1.7vw;
+  margin-left: 18vw;
+  border: 2px solid purple;
+}
+
+.contact-part {
+  background-color: #000000;
+  color: white;
+  height: 100vh;
+  position: relative;
+}
+
+.giving {
+  font-size: 8vh;
+  text-align: center;
+}
+
+.more {
+  border-top: 2px solid lightgray;
+  margin: 0 10vw;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: auto;
 }
+
+.me-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* animation */
 
 @keyframes scatter1 {
   0% {
     opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
   }
-
+  50% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
+  }
   100% {
-    transform: translate(-700px, 100%);
+    transform: translate3d(-275%, 100%, -50px);
   }
 }
 
 @keyframes scatter2 {
   0% {
     opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  50% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
   }
 
   100% {
-    transform: translate(-500px, -370%);
+    transform: translate3d(-185%, -160%, -50px);
+    z-index: -1;
   }
 }
 
 @keyframes scatter3 {
   0% {
     opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  50% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
   }
 
   100% {
-    transform: translate(-200px, 50%);
+    transform: translate3d(-100%, 50%, -50px);
+    z-index: -1;
   }
 }
 
 @keyframes scatter4 {
   0% {
     opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  50% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
   }
 
   100% {
-    transform: translate(500px, -400%);
+    transform: translate3d(350%, -280%, -50px);
+    z-index: -1;
   }
 }
 
 @keyframes headsup {
   0% {
-    transform: translate(0, 200px);
+    transform: translate3d(-50%, 100px, 0);
   }
-  100% {
+  50% {
     opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
   }
 }
 
-@keyframes nameup {
+@keyframes backgroundup {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(100px);
+  }
+}
+
+/* RWD */
+@media screen and (min-width: 992px) {
+  .name {
+    font-size: 15rem;
+  }
+
+  .intro-part {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+  }
+
+  .avatar {
+    width: 100%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+  }
+
+  .intro-text-wrapper {
+    height: auto;
+
+    position: relative;
+    top: 0;
+  }
+
+  .text-container {
+    position: sticky;
+    top: 0;
+    overflow: auto;
+    height: 100vh;
+  }
+  .text-container::-webkit-scrollbar {
+    display: none;
+    /* Todo: scrollbar樣式要改 */
+  }
+
+  .intro-text {
+    position: absolute;
+    top: 0;
+    height: 98vh;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .first,
+  .second,
+  .third {
+    height: 100vh;
+  }
+
+  .intro-text-one {
+    font-size: 1.35vw;
+  }
+
+  .intro-text-two {
+    font-size: 3.125vw;
+  }
+
+  .intro-text-three {
+    font-size: 1.25vw;
+  }
+
+  .giving {
+    font-size: 14vh;
+  }
+
+  .me-container {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .me:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #000000;
+    backdrop-filter: blur(12px);
+  }
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .name {
+    font-size: 21vw;
+  }
+
+  .me-container {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .me:hover {
+    cursor: pointer;
+    background-color: white;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 480px) {
+  .name {
+    font-size: 20vw;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .name {
+    font-size: 20vw;
   }
 }
 </style>
