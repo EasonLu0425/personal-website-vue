@@ -116,10 +116,18 @@
       <div class="more" ref="more">
         <h1>Learn More About Me</h1>
         <div class="me-container" ref="meContainer">
-          <div class="me one">#Skills</div>
-          <div class="me two">#Careers</div>
-          <div class="me three">#Acedemics</div>
-          <div class="me four">#Projects</div>
+          <div class="me one">
+            <router-link :to="{ name: 'skills' }">#Skills</router-link>
+          </div>
+          <div class="me two">
+            <router-link :to="{ name: 'careers' }">#Careers</router-link>
+          </div>
+          <div class="me three">
+            <router-link :to="{ name: 'academic' }">#Academic</router-link>
+          </div>
+          <div class="me four">
+            <router-link :to="{ name: 'projects' }">#Projects</router-link>
+          </div>
         </div>
       </div>
     </section>
@@ -156,29 +164,28 @@ export default {
 
     gsap.set(".me", { opacity: 0, x: -100 });
     const meTL = gsap.timeline({
-        scrollTrigger:{
-          trigger: this.$refs.more,
+      scrollTrigger: {
+        trigger: this.$refs.more,
+      },
+    });
 
-        }
+    meTL
+      .to(".one", {
+        opacity: 1,
+        x: 0,
+      })
+      .to(".two", {
+        opacity: 1,
+        x: 0,
+      })
+      .to(".three", {
+        opacity: 1,
+        x: 0,
+      })
+      .to(".four", {
+        opacity: 1,
+        x: 0,
       });
-
-      meTL
-        .to(".one", {
-          opacity: 1,
-          x: 0,
-        })
-        .to(".two", {
-          opacity: 1,
-          x: 0,
-        })
-        .to(".three", {
-          opacity: 1,
-          x: 0,
-        })
-        .to(".four", {
-          opacity: 1,
-          x: 0,
-        });
 
     if (screen >= 992) {
       introTexts.forEach((introText) => {
@@ -194,7 +201,7 @@ export default {
           trigger: ".intro-part",
           scrub: true,
           start: "top top",
-          end: "bottom top",
+          end: "bottom+=1000 top",
           pin: true,
         },
       });
@@ -332,7 +339,6 @@ export default {
           },
           "-=0.25"
         );
-
     } else {
       introTexts.forEach((introText) => {
         for (let i = 0; i < introText.children.length; i++) {
@@ -363,7 +369,7 @@ export default {
 .scroll-container {
   /* 整個頁面高度 */
   height: 300vh;
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  /* background-image: linear-gradient(to right, #434343 0%, black 100%); */
 }
 
 section {
@@ -576,6 +582,16 @@ svg #wheel {
   align-items: center;
 }
 
+.me a {
+  text-decoration: none;
+  color:white
+}
+
+.me a:hover{
+  background:white;
+  color:black
+}
+
 /* animation */
 
 @keyframes scatter1 {
@@ -635,7 +651,7 @@ svg #wheel {
   }
 
   100% {
-    transform: translate3d(350%, -280%, -50px);
+    transform: translate3d(80%, -280%, -50px);
     z-index: -1;
   }
 }
@@ -746,7 +762,7 @@ svg #wheel {
     gap: 1.5rem;
   }
 
-  .me:hover {
+  .me-container .me:hover {
     cursor: pointer;
     background-color: white;
     color: #000000;

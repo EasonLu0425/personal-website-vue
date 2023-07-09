@@ -30,6 +30,11 @@ const routes = [
     path:'/projects',
     name:'projects',
     component: () => import('../views/Projects')
+  },
+  {
+    path:'*',
+    name:'not-fond',
+    component:() => import('../views/NotFound')
   }
 ]
 

@@ -2,7 +2,7 @@
   <nav>
     <div class="nav-wrapper">
       <div class="button-container">
-        <button class="logo">
+        <button class="logo" @click="closeNavbar">
           <router-link :to="{ name: 'home' }">E</router-link>
         </button>
         <label
@@ -19,16 +19,16 @@
       </div>
     </div>
     <div class="link-container" :class="{ active: navOpen }">
-      <div class="link">
+      <div class="link" @click="closeNavbar">
         <router-link :to="{ name: 'skills' }">#Skills</router-link>
       </div>
-      <div class="link">
+      <div class="link" @click="closeNavbar">
         <router-link :to="{ name: 'careers' }">#Careers</router-link>
       </div>
-      <div class="link">
+      <div class="link" @click="closeNavbar">
         <router-link :to="{ name: 'academic' }">#Academic</router-link>
       </div>
-      <div class="link">
+      <div class="link" @click="closeNavbar">
         <router-link :to="{ name: 'projects' }">#Projects</router-link>
       </div>
     </div>
@@ -45,8 +45,10 @@ export default {
   },
   methods: {
     handleClick() {
-      console.log("click");
       this.navOpen = !this.navOpen;
+    },
+    closeNavbar() {
+      this.navOpen = false;
     },
   },
 };
@@ -56,38 +58,8 @@ export default {
 nav {
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 10;
-}
-
-.link-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* transform: scale(1, 0); */
-  opacity: 0;
-  transition: opacity 0.2s ease-in 1s;
-  /* , transform 0.2s ease-in 1s; */
-  transform-origin: top;
-  height: 100vh;
-  width: 100%;
-  position: absolute;
-}
-
-.active {
-  opacity: 1;
-  /* transform: scale(1, 1); */
-}
-
-.link a {
-  text-decoration: none;
-  color: white;
-  font-size: 13vh;
-  opacity: 0;
-  transform: translateX(-100%);
-  animation: slideIn 0.2s ease-in forwards;
-  animation-delay: 1s;
 }
 
 .button-container {
@@ -153,13 +125,55 @@ button a {
   transform: scale(1, 1) rotate(-45deg);
 }
 
+.link-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: scale(1, 0);
+  transform-origin: top;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  transition: opacity 0.2s ease-in 0.5s, transform 0.2s ease-in 1s;
+}
+
+.active {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.link a {
+  text-decoration: none;
+  color: white;
+  font-size: 10vh;
+  opacity: 0;
+  animation: slideIn 0.2s ease-in forwards;
+  animation-delay: 1s;
+}
+
+.link {
+  transition: transform 0.5s ease-in;
+}
+
+.link:hover {
+  transform: translate(100px, 0);
+}
+
+.link:hover::before {
+  content: ">>";
+  color: white;
+  font-size: 13vh;
+}
+
 .backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(20px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s 1s;

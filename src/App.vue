@@ -2,7 +2,7 @@
   <div id="app">
     <Navbar />
 
-    <body class="pb-5">
+    <body>
       <router-view />
     </body>
   </div>
@@ -31,15 +31,16 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  // background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
-  height:100vh;
-  
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  // background-image: linear-gradient(to right, #434343 0%, black 100%);
+  background: #000000;
 }
 
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
-
 </style>

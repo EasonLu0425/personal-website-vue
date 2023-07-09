@@ -30,11 +30,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width:100vw;
 }
 
 .together-text {
   text-align: center;
-  width: 600px;
+  width: 100vw;
+
 }
 
 
