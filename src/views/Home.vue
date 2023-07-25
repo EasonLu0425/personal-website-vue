@@ -3,35 +3,19 @@
     <section class="scroll-item name-part" id="namePart" ref="namePart">
       <div class="first-page">
         <div class="pics-wrapper">
-          <img
-            class="hero-pics"
-            src="https://cdn-icons-png.flaticon.com/512/8068/8068013.png"
-            alt=""
-            style="width: 100px; height: 100px"
-          />
-          <img
-            class="hero-pics"
-            src="https://cdn-icons-png.flaticon.com/512/6335/6335569.png"
-            alt=""
-            style="width: 100px; height: 100px"
-          />
-          <img
-            class="hero-pics"
-            src="https://cdn-icons-png.flaticon.com/512/3841/3841715.png"
-            alt=""
-            style="width: 100px; height: 100px"
-          />
-          <img
-            class="hero-pics"
-            src="https://cdn-icons-png.flaticon.com/512/3841/3841729.png"
-            alt=""
-            style="width: 100px; height: 100px"
-          />
+          <img class="hero-pics" src="../images/01.jpg" alt="01" />
+          <img class="hero-pics" src="../images/02.jpg" alt="01" />
+          <img class="hero-pics" src="../images/03.jpg" alt="01" />
+          <img class="hero-pics" src="../images/04.jpg" alt="01" />
+          <img class="hero-pics" src="../images/05.jpg" alt="02" />
+          <img class="hero-pics" src="../images/06.jpg" alt="03" />
+          <img class="hero-pics" src="../images/07.jpg" alt="04" />
         </div>
         <div class="name-wrapper">
+          <div class="name-bg"></div>
           <p class="name">Eason,</p>
         </div>
-        <div class="scroll">
+        <div class="scroll" style="z-index:1">
           <svg
             width="40px"
             height="100%"
@@ -58,7 +42,7 @@
               style="fill: none; stroke: #fff; stroke-width: 20px"
             />
           </svg>
-          <div style="color: white">Scroll down</div>
+          <div style="color: white" >Scroll down</div>
         </div>
       </div>
     </section>
@@ -69,7 +53,7 @@
     >
       <p class="welcome">Welcome</p>
       <p class="welcome">To My</p>
-      <p class="welcome">World</p>
+      <p class="welcome">Fanacy</p>
     </section>
     <section class="scroll-item intro-part" ref="introPart">
       <div class="intro">
@@ -81,27 +65,53 @@
         <div class="intro-text-wrapper">
           <div class="text-container">
             <div class="intro-text first" ref="introTextFirst">
-              <div class="intro-text-one">I'm Eason Lu</div>
+              <div class="intro-text-one">I'M EASON</div>
               <div class="intro-text-two">
-                Marketing, Creative Designer & AWWWARDS Young Jury.
+                Enthusiastic & Adaptable Individual Excited to Explore
+                Opportunities
               </div>
               <div class="intro-text-three">
-                As a Creative Director, I have accumulated experience crafting
-                visually stunning and engaging digital experiences. With a
-                passion for design and a keen eye for detail, I specialize in
-                translating complex ideas into simple, elegant solutions that
-                capture the essence of a brand.
+                Over the years, I have honed my skills through various
+                professional experiences. I have worked at ADATA and Sinyi
+                Realty as procurement buyer and project manager , where I was
+                responsible for collaborating with internal teams and settling
+                upcoming problems. These roles allowed me to refine my
+                leadership abilities, foster teamwork, and deliver exceptional
+                results under tight deadlines.
               </div>
             </div>
             <div class="intro-text second" ref="introTextSecond">
-              <div class="intro-text-one">B1</div>
-              <div class="intro-text-two">B2</div>
-              <div class="intro-text-three">B3</div>
+              <div class="intro-text-one">Consistently Pursued Excellence</div>
+              <div class="intro-text-two">
+                Passion for Learning & Personal Development
+              </div>
+              <div class="intro-text-three">
+                I believe in the power of knowledge and continuous improvement.
+                Currently, I am furthering my education in full-stack
+                engineering, specifically focusing on back-end development. This
+                pursuit has ignited my passion for innovation and technology,
+                and has opened doors to exciting opportunities for personal and
+                professional development.The fast-paced nature of the technology
+                industry excites me, as it challenges me to continuously evolve
+                and keeps me on the cutting edge of advancements.
+              </div>
             </div>
             <div class="intro-text third" ref="introTextThird">
-              <div class="intro-text-one">C1</div>
-              <div class="intro-text-two">C2</div>
-              <div class="intro-text-three">C3</div>
+              <div class="intro-text-one">Thrived in Diverse Environments</div>
+              <div class="intro-text-two">
+                Adaptability Extends Beyond the Workplace
+              </div>
+              <div class="intro-text-three">
+                My diverse background as a purchasing buyer and real estate
+                agent, coupled with my newfound expertise in JavaScript,
+                reflects my passion for continuously challenging myself and
+                embracing new opportunities. I am driven by a desire to excel in
+                every endeavor I undertake, combining my analytical mindset,
+                interpersonal skills, and technical knowledge to drive positive
+                outcomes; looking forward to the opportunity to discuss how my
+                skills, experiences, and passion align with your organization's
+                vision and contribute to its continued success.
+              </div>
             </div>
           </div>
         </div>
@@ -109,9 +119,15 @@
     </section>
     <section class="scroll-item contact-part">
       <div class="giving">
-        I'm Here To Give You
-        <div class="adj">Unique</div>
-        Experience
+        <div class="giving-word here">I'm Here</div>
+        <div class="giving-word give" ref="giving">To Give You</div>
+        <div class="adjs">
+          <div class="adj">Unique</div>
+          <div class="adj">Fantastic</div>
+          <div class="adj">Marvelous</div>
+          <div class="adj">Enchanting</div>
+        </div>
+        <div class="giving-word exp">Experiences</div>
       </div>
       <div class="more" ref="more">
         <h1>Learn More About Me</h1>
@@ -139,10 +155,16 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Footer from "./../components/Footer.vue";
-
+gsap.registerPlugin(ScrollTrigger);
 export default {
   mounted() {
-    gsap.registerPlugin(ScrollTrigger);
+    const introTexts = [
+      this.$refs.introTextFirst,
+      this.$refs.introTextSecond,
+      this.$refs.introTextThird,
+    ];
+    const screen = window.innerWidth;
+    const givingWords = gsap.utils.toArray(".giving-word");
     gsap.to(".name-part", {
       filter: "blur(20px)",
       duration: 1,
@@ -154,39 +176,22 @@ export default {
       },
     });
 
-    const introTexts = [
-      this.$refs.introTextFirst,
-      this.$refs.introTextSecond,
-      this.$refs.introTextThird,
-    ];
+    gsap.set(".giving-word", { opacity: 0, y: 100 });
 
-    const screen = window.innerWidth;
+    gsap.set(".adj", { opacity: 0, y: 100 });
+    const adjs = gsap.utils.toArray(".adj");
+    const adjTL = gsap.timeline({ repeat: -1 });
+    adjTL
+      .to(adjs[0], { opacity: 1, y: -1, duration: 1 })
+      .to(adjs[0], { opacity: 0, y: -100 })
+      .to(adjs[1], { opacity: 1, y: -1, duration: 1 })
+      .to(adjs[1], { opacity: 0, y: -100 })
+      .to(adjs[2], { opacity: 1, y: -1, duration: 1 })
+      .to(adjs[2], { opacity: 0, y: -100 })
+      .to(adjs[3], { opacity: 1, y: -10, duration: 1 })
+      .to(adjs[3], { opacity: 0, y: -100 });
 
     gsap.set(".me", { opacity: 0, x: -100 });
-    const meTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: this.$refs.more,
-      },
-    });
-
-    meTL
-      .to(".one", {
-        opacity: 1,
-        x: 0,
-      })
-      .to(".two", {
-        opacity: 1,
-        x: 0,
-      })
-      .to(".three", {
-        opacity: 1,
-        x: 0,
-      })
-      .to(".four", {
-        opacity: 1,
-        x: 0,
-      });
-
     if (screen >= 992) {
       introTexts.forEach((introText) => {
         for (let i = 0; i < introText.children.length; i++) {
@@ -339,6 +344,40 @@ export default {
           },
           "-=0.25"
         );
+
+      givingWords.forEach((word) => {
+        gsap.to(word, {
+          opacity: 1,
+          y: 0,
+          scrollTrigger: {
+            trigger: this.$refs.giving,
+          },
+        });
+      });
+      const meTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".me",
+          start: "bottom bottom",
+        },
+      });
+
+      meTL
+        .to(".one", {
+          opacity: 1,
+          x: 0,
+        })
+        .to(".two", {
+          opacity: 1,
+          x: 0,
+        })
+        .to(".three", {
+          opacity: 1,
+          x: 0,
+        })
+        .to(".four", {
+          opacity: 1,
+          x: 0,
+        });
     } else {
       introTexts.forEach((introText) => {
         for (let i = 0; i < introText.children.length; i++) {
@@ -355,6 +394,39 @@ export default {
           });
         }
       });
+      givingWords.forEach((word) => {
+        gsap.to(word, {
+          opacity: 1,
+          y: 0,
+          scrollTrigger: {
+            trigger: this.$refs.giving,
+          },
+        });
+      });
+      const meTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".me",
+          start: "bottom bottom",
+        },
+      });
+
+      meTL
+        .to(".one", {
+          opacity: 1,
+          x: 0,
+        })
+        .to(".two", {
+          opacity: 1,
+          x: 0,
+        })
+        .to(".three", {
+          opacity: 1,
+          x: 0,
+        })
+        .to(".four", {
+          opacity: 1,
+          x: 0,
+        });
     }
   },
   components: {
@@ -367,9 +439,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Manrope:wght@200;400;500;700&family=Noto+Sans:wght@500;700&family=Nunito+Sans:wght@400;700&display=swap");
 
 .scroll-container {
-  /* 整個頁面高度 */
-  height: 300vh;
-  /* background-image: linear-gradient(to right, #434343 0%, black 100%); */
+  height: 400vh;
 }
 
 section {
@@ -389,6 +459,7 @@ section {
 }
 
 .name-wrapper {
+  position: relative;
   z-index: 1;
   width: 100vw;
   height: 100vh;
@@ -399,6 +470,15 @@ section {
   opacity: 0;
 }
 
+.name-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.5;
+  z-index: 0;
+}
+
 .name {
   font-size: 15rem;
   line-height: 1.1;
@@ -406,6 +486,7 @@ section {
   font-family: Manrope, sans-serif;
   opacity: 1;
   color: white;
+  z-index: 2;
 }
 
 .pics-wrapper {
@@ -415,6 +496,7 @@ section {
   left: 0%;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 
 .hero-pics {
@@ -422,6 +504,10 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, 100px);
+  width: 30vw;
+  height: 40vw;
+  overflow: hidden;
+  object-fit: cover;
 }
 
 .pics-wrapper img:nth-child(1) {
@@ -447,6 +533,27 @@ section {
 
 .pics-wrapper img:nth-child(4) {
   animation-name: headsup, scatter4;
+  animation-duration: 1s, 1.3s;
+  animation-fill-mode: forwards, forwards;
+  animation-delay: 0.03s, 0.5s;
+}
+
+.pics-wrapper img:nth-child(5) {
+  animation-name: headsup, scatter5;
+  animation-duration: 1s, 1.3s;
+  animation-fill-mode: forwards, forwards;
+  animation-delay: 0.03s, 0.5s;
+}
+
+.pics-wrapper img:nth-child(6) {
+  animation-name: headsup, scatter6;
+  animation-duration: 1s, 1.3s;
+  animation-fill-mode: forwards, forwards;
+  animation-delay: 0.03s, 0.5s;
+}
+
+.pics-wrapper img:nth-child(7) {
+  animation-name: headsup, scatter7;
   animation-duration: 1s, 1.3s;
   animation-fill-mode: forwards, forwards;
   animation-delay: 0.03s, 0.5s;
@@ -479,7 +586,6 @@ svg #wheel {
   top: 0;
   height: auto;
   padding-bottom: 20vh;
-  /* width: 100vw; */
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -518,7 +624,6 @@ svg #wheel {
   flex-grow: 1;
   gap: 6rem;
   color: white;
-  /* background-color: #e0e0e0; */
 }
 
 .avatar {
@@ -537,21 +642,18 @@ svg #wheel {
 
 .intro-text-one {
   font-size: 12px;
-  margin-bottom: 4vh;
-  border: 2px solid red;
+  margin-bottom: 5vh;
 }
 
 .intro-text-two {
   font-size: 24px;
-  margin-bottom: 4vh;
-  border: 2px solid blue;
+  margin-bottom: 6vh;
 }
 
 .intro-text-three {
   font-size: 18px;
   padding-left: 1.7vw;
   margin-left: 18vw;
-  border: 2px solid purple;
 }
 
 .contact-part {
@@ -562,8 +664,47 @@ svg #wheel {
 }
 
 .giving {
-  font-size: 8vh;
-  text-align: center;
+  position: relative;
+  font-size: 7vh;
+  font-weight: 300;
+  margin: 0 1rem;
+}
+
+.here {
+  padding-left: 5vw;
+}
+
+.give {
+  padding-left: 10vw;
+  position: relative;
+}
+
+.give::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #ff5029;
+  position: absolute;
+  left: 5%;
+  top: 50%;
+}
+
+.adjs {
+  position: relative;
+  height: 14vh;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  font-weight: 500;
+}
+
+.adj {
+  position: absolute;
+  left: 20%;
+  top: 0;
+}
+
+.exp {
+  padding-left: 5vw;
 }
 
 .more {
@@ -584,12 +725,12 @@ svg #wheel {
 
 .me a {
   text-decoration: none;
-  color:white
+  color: white;
 }
 
-.me a:hover{
-  background:white;
-  color:black
+.me a:hover {
+  background: white;
+  color: black;
 }
 
 /* animation */
@@ -604,7 +745,7 @@ svg #wheel {
     transform: translate3d(-50%, -50%, 0);
   }
   100% {
-    transform: translate3d(-275%, 100%, -50px);
+    transform: translate3d(-150%, 70%, -50px);
   }
 }
 
@@ -619,7 +760,7 @@ svg #wheel {
   }
 
   100% {
-    transform: translate3d(-185%, -160%, -50px);
+    transform: translate3d(40%, 10%, -50px);
     z-index: -1;
   }
 }
@@ -635,7 +776,7 @@ svg #wheel {
   }
 
   100% {
-    transform: translate3d(-100%, 50%, -50px);
+    transform: translate3d(-100%, -80%, -50px);
     z-index: -1;
   }
 }
@@ -651,7 +792,55 @@ svg #wheel {
   }
 
   100% {
-    transform: translate3d(80%, -280%, -50px);
+    transform: translate3d(250%, -20%, -50px);
+    z-index: -1;
+  }
+}
+
+@keyframes scatter5 {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  50% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  100% {
+    transform: translate3d(-185%, -190%, -50px);
+    z-index: -1;
+  }
+}
+
+@keyframes scatter6 {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  50% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  100% {
+    transform: translate3d(-380%, -50%, -50px);
+    z-index: -1;
+  }
+}
+
+@keyframes scatter7 {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  50% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  100% {
+    transform: translate3d(80%, -180%, -50px);
     z-index: -1;
   }
 }
@@ -691,6 +880,11 @@ svg #wheel {
     font-size: 15rem;
   }
 
+  .hero-pics {
+    height: 268px;
+    width: 201px;
+  }
+
   .intro-part {
     height: 100vh;
     overflow: hidden;
@@ -711,7 +905,6 @@ svg #wheel {
 
   .intro-text-wrapper {
     height: auto;
-
     position: relative;
     top: 0;
   }
@@ -724,7 +917,6 @@ svg #wheel {
   }
   .text-container::-webkit-scrollbar {
     display: none;
-    /* Todo: scrollbar樣式要改 */
   }
 
   .intro-text {
@@ -768,11 +960,46 @@ svg #wheel {
     color: #000000;
     backdrop-filter: blur(12px);
   }
+
+  .giving {
+    text-align: center;
+    display: flex;
+    margin: 0 5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .here {
+    padding-left: 30vh;
+  }
+
+  .give {
+    padding-left: 40vh;
+  }
+
+  .give::before {
+    left: 30%;
+  }
+
+  .adjs {
+    width: 100%;
+    height: 18vh;
+  }
+
+  .exp {
+    padding-left: 30vh;
+  }
 }
 
 @media screen and (max-width: 991px) and (min-width: 768px) {
   .name {
     font-size: 21vw;
+  }
+
+  .hero-pics {
+    height: 268px;
+    width: 201px;
   }
 
   .me-container {
@@ -783,6 +1010,32 @@ svg #wheel {
   .me:hover {
     cursor: pointer;
     background-color: white;
+  }
+
+  .here {
+    padding-left: 15vw;
+  }
+
+  .give {
+    padding-left: 25vw;
+  }
+
+  .give::before {
+    left: 20%;
+  }
+
+  .adjs {
+    position: relative;
+    height: 14vh;
+  }
+
+  .adj {
+    position: absolute;
+    left: 45%;
+  }
+
+  .exp {
+    padding-left: 20vw;
   }
 }
 

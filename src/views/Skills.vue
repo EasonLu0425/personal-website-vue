@@ -506,7 +506,7 @@ hr {
 .dot::before {
   content: "";
   position: absolute;
-  top: -7.55px;
+  top: -7.5px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 50%;

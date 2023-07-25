@@ -2,7 +2,7 @@
   <section class="container">
     <div class="anim">
       <div class="words">
-        <div class="im" style="color:white">I'm </div>
+        <div class="im" style="color: white">I'm</div>
         <h1><span>E</span>nthusiastic</h1>
         <h1><span>A</span>ctive</h1>
         <h1><span>S</span>elf-disciplined</h1>
@@ -72,43 +72,47 @@
 </template>
 
 <script>
-import gsap from 'gsap'
+import gsap from "gsap";
 export default {
   mounted() {
-    const adjs = gsap.utils.toArray('h1')
-    const animTL = gsap.timeline({repeat:-1})
-    adjs.forEach(adj => gsap.set(adj, {opacity:0}))
-    animTL.to(adjs[0], {opacity:1, duration:1}).to(adjs[0], {opacity:0})
-          .to(adjs[1], {opacity:1, duration:1}).to(adjs[1], {opacity:0})
-          .to(adjs[2], {opacity:1, duration:1}).to(adjs[2], {opacity:0})
-          .to(adjs[3], {opacity:1, duration:1}).to(adjs[3], {opacity:0})
-          .to(adjs[4], {opacity:1, duration:1}).to(adjs[4], {opacity:0})
-    
-  }
-}
+    const adjs = gsap.utils.toArray("h1");
+    const animTL = gsap.timeline({ repeat: -1 });
+    adjs.forEach((adj) => gsap.set(adj, { opacity: 0 }));
+    animTL
+      .to(adjs[0], { opacity: 1, duration: 1 })
+      .to(adjs[0], { opacity: 0 })
+      .to(adjs[1], { opacity: 1, duration: 1 })
+      .to(adjs[1], { opacity: 0 })
+      .to(adjs[2], { opacity: 1, duration: 1 })
+      .to(adjs[2], { opacity: 0 })
+      .to(adjs[3], { opacity: 1, duration: 1 })
+      .to(adjs[3], { opacity: 0 })
+      .to(adjs[4], { opacity: 1, duration: 1 })
+      .to(adjs[4], { opacity: 0 });
+  },
+};
 </script>
-
 
 <style scoped>
 section {
   margin-top: 150px;
-  padding-left: 3rem;
+  padding: 0 3rem;
   height: auto;
   width: 100vw;
   display: grid;
-  grid-template-areas: 
-  'anim anim'
-  'adata sinyi'
-  'accom accom';
+  grid-template-areas:
+    "anim anim"
+    "adata adata"
+    "sinyi sinyi"
+    "accom accom";
   justify-items: center;
   grid-gap: 2rem;
   font-weight: 300;
-
 }
 
 .anim {
-  width:100%;
-  height:50vh;
+  width: 100%;
+  height: 50vh;
   grid-area: anim;
   display: flex;
   justify-content: center;
@@ -116,32 +120,39 @@ section {
   position: relative;
 }
 
-.im{
+.im {
   position: absolute;
   font-size: 14vh;
-  left:0;
-  top:0;
+  left: 0;
+  top: 0;
 }
 
 .dot {
   font-size: 14vh;
-  color:#8ddaf9;
-  position:absolute;
-  right:5%;
-  bottom:10%;
+  color: #8ddaf9;
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
 }
 
 .anim h1 {
-  color:white;
+  color: white;
   position: absolute;
-  font-size: 16vh;
-  transform:translate(-40%, -50%)
+  font-size: 8vh;
+  transform: translate(-50%, -40%);
 }
 
 .anim h1 span {
   color: #f09819;
 }
 
+.adata {
+  grid-area: adata;
+}
+
+.sinyi {
+  grid-area: sinyi;
+}
 
 .company {
   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
@@ -172,10 +183,39 @@ section {
 
 .accom {
   grid-area: accom;
-  color:white;
-  width:100%;
-  border: 1px solid red;;
-
+  color: white;
+  width: 100%;
+  border: 1px solid red;
 }
 
+/* RWD */
+
+@media screen and (min-width: 425px) {
+  section {
+    grid-template-areas:
+      "anim anim"
+      "adata adata"
+      "sinyi sinyi"
+      "accom accom";
+  }
+
+  .anim h1 {
+    font-size: 11vh;
+    transform: translate(-40%, -40%);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  section {
+    grid-template-areas:
+      "anim anim"
+      "adata sinyi"
+      "accom accom";
+  }
+
+  .anim h1 {
+    font-size: 14vh;
+    transform: translate(-40%, -50%);
+  }
+}
 </style>

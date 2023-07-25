@@ -71,14 +71,21 @@ button {
   all: unset;
   width: 100px;
   height: 100px;
-  background-color: #000000;
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
+  font-weight: 800;
+  margin-left: 1rem;
+  transition: transform 0.8s ease-in;
 }
 
 button a {
   text-decoration: none;
-  color: white;
+  color: #e0e0e0;
+}
+
+button:hover {
+  transform: rotate(360deg);
+  transform-origin: center;
 }
 
 .nav-wrapper {
