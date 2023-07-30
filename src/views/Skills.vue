@@ -294,7 +294,7 @@ section {
   position: absolute;
   /* background: #f00; */
   inset: 5px;
-  z-index: 10;
+  z-index: 1;
   animation: animateDot 2s linear forwards;
 }
 
