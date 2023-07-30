@@ -53,7 +53,7 @@
     >
       <p class="welcome">Welcome</p>
       <p class="welcome">To My</p>
-      <p class="welcome">Fanacy</p>
+      <p class="welcome">Fantacy</p>
     </section>
     <section class="scroll-item intro-part" ref="introPart">
       <div class="intro">
@@ -130,8 +130,7 @@
                 Adaptability Extends Beyond the Workplace
               </div>
               <div class="intro-text-three">
-                My diverse background as a purchasing buyer and real estate
-                agent, coupled with my newfound expertise in JavaScript,
+                My diverse background coupled with my newfound expertise in JavaScript,
                 reflects my passion for continuously challenging myself and
                 embracing new opportunities. I am driven by a desire to excel in
                 every endeavor I undertake, combining my analytical mindset,

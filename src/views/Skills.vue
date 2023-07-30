@@ -5,33 +5,43 @@
         <h2 class="category-name">Front-End</h2>
         <div class="skills">
           <div class="skill-card" v-for="skill in frontEnd" :key="skill.name">
-            <div class="percent" style="--clr: #FF8303" :style="{'--num':skill.score}">
+            <div
+              class="percent"
+              style="--clr: #ff8303"
+              :style="{ '--num': skill.score }"
+            >
               <div class="dot"></div>
               <svg>
                 <circle cx="75" cy="75" r="70"></circle>
                 <circle cx="75" cy="75" r="70"></circle>
               </svg>
               <div class="number">
-                <h2>{{skill.score}}<span>%</span></h2>
-                <p>{{skill.name}}</p>
+                <h2>{{ skill.score }}<span>%</span></h2>
+                <p>{{ skill.name }}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="back-end category" style="color:black">
+      <div class="back-end category" style="color: black">
         <h2 class="category-name">Back-End</h2>
         <div class="skills">
           <div class="skill-card" v-for="skill in backEnd" :key="skill.name">
-            <div class="percent" style="--clr: #A35709" :style="{'--num':skill.score}">
+            <div
+              class="percent"
+              style="--clr: #a35709"
+              :style="{ '--num': skill.score }"
+            >
               <div class="dot"></div>
               <svg>
                 <circle cx="75" cy="75" r="70"></circle>
                 <circle cx="75" cy="75" r="70"></circle>
               </svg>
-              <div class="number" >
-                <h2 style="color:black">{{skill.score}}<span style="color:black">%</span></h2>
-                <p style="color:black"> {{skill.name}}</p>
+              <div class="number">
+                <h2 style="color: black">
+                  {{ skill.score }}<span style="color: black">%</span>
+                </h2>
+                <p style="color: black">{{ skill.name }}</p>
               </div>
             </div>
           </div>
@@ -41,15 +51,19 @@
         <h2 class="category-name">Languages</h2>
         <div class="skills">
           <div class="skill-card" v-for="skill in languages" :key="skill.name">
-            <div class="percent" style="--clr: #F0E3CA" :style="{'--num':skill.score}">
+            <div
+              class="percent"
+              style="--clr: #f0e3ca"
+              :style="{ '--num': skill.score }"
+            >
               <div class="dot"></div>
               <svg>
                 <circle cx="75" cy="75" r="70"></circle>
                 <circle cx="75" cy="75" r="70"></circle>
               </svg>
               <div class="number">
-                <h2>{{skill.score}}<span>%</span></h2>
-                <p>{{skill.name}}</p>
+                <h2>{{ skill.score }}<span>%</span></h2>
+                <p>{{ skill.name }}</p>
               </div>
             </div>
           </div>
@@ -59,43 +73,65 @@
         <h2 class="category-name">Soft-Skills</h2>
         <div class="skills">
           <div class="skill-card" v-for="skill in softSkills" :key="skill.name">
-            <div class="percent" style="--clr: #F0E3CA" :style="{'--num':skill.score}">
+            <div
+              class="percent"
+              style="--clr: #f0e3ca"
+              :style="{ '--num': skill.score }"
+            >
               <div class="dot"></div>
               <svg>
                 <circle cx="75" cy="75" r="70"></circle>
                 <circle cx="75" cy="75" r="70"></circle>
               </svg>
               <div class="number">
-                <h2>{{skill.score}}<span>%</span></h2>
-                <p>{{skill.name}}</p>
+                <h2>{{ skill.score }}<span>%</span></h2>
+                <p>{{ skill.name }}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="other-skills category" style="color:black">
+      <div class="other-skills category" style="color: black">
         <h2 class="category-name">Other-Skills</h2>
         <div class="skills">
-          <div class="skill-card" v-for="skill in otherSkills" :key="skill.name">
-            <div class="percent" style="--clr: #FF8303" :style="{'--num':skill.score}">
+          <div
+            class="skill-card"
+            v-for="skill in otherSkills"
+            :key="skill.name"
+          >
+            <div
+              class="percent"
+              style="--clr: #ff8303"
+              :style="{ '--num': skill.score }"
+            >
               <div class="dot"></div>
               <svg>
                 <circle cx="75" cy="75" r="70"></circle>
                 <circle cx="75" cy="75" r="70"></circle>
               </svg>
               <div class="number">
-                <h2 style="color:black">{{skill.score}}<span style="color:black">%</span></h2>
-                <p style="color:black">{{skill.name}}</p>
+                <h2 style="color: black">
+                  {{ skill.score }}<span style="color: black">%</span>
+                </h2>
+                <p style="color: black">{{ skill.name }}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="link">
-        <a href=""><img src="../images/github.svg" alt="github"></a>
-        <a href=""><img src="../images/instagram.svg" alt="ins"></a>
-        <a href=""><img src="../images/facebook.svg" alt="FB"></a>
-        <a href=""><img src="../images/linkedin.svg" alt="LI"></a>
+        <a href="https://github.com/EasonLu0425"
+          ><img src="../images/github.svg" alt="github"
+        /></a>
+        <a href="https://www.instagram.com/eason_lu0425/"
+          ><img src="../images/instagram.svg" alt="ins"
+        /></a>
+        <a href="https://www.facebook.com/eason.lu.146"
+          ><img src="../images/facebook.svg" alt="FB"
+        /></a>
+        <a href="https://www.linkedin.com/in/eason-lu-8163bb1aa/"
+          ><img src="../images/linkedin.svg" alt="LI"
+        /></a>
       </div>
     </div>
   </section>
@@ -154,18 +190,19 @@ export default {
 
 <style scoped>
 section {
-  height: 100%;
+  height: auto;
   width: 100vw;
   margin-top: 150px;
   padding-bottom: 3rem;
   color: white;
 }
 
+
 .grid-wrapper {
   display: grid;
-  width: 100%;
-  height: 100vh;
-  margin: 0 auto;
+
+  margin: 0 auto 3rem;
+
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-template-areas:
@@ -185,13 +222,13 @@ section {
 
 .back-end {
   grid-area: back;
-  background: #F0E3CA;
+  background: #f0e3ca;
   border-radius: 15px;
 }
 
 .other-skills {
   grid-area: other;
-  background: #F0E3CA;
+  background: #f0e3ca;
   border-radius: 15px;
 }
 
@@ -203,7 +240,7 @@ section {
 
 .languages {
   grid-area: languages;
-  background: #A35709;
+  background: #a35709;
   border-radius: 15px;
 }
 
@@ -216,8 +253,8 @@ section {
 }
 
 .link a img {
-  height:50px;
-  width:50px;
+  height: 50px;
+  width: 50px;
 }
 
 .category {
@@ -237,9 +274,8 @@ section {
   text-align: center;
 }
 
-
-.skill-card{
-  position:relative;
+.skill-card {
+  position: relative;
   width: 150px;
   height: 150px;
   color: black;
@@ -362,14 +398,10 @@ section {
 @media screen and (min-width: 768px) {
   .container {
     margin: 150px auto;
-    padding: 0;
+    padding: 0 0;
   }
-  .section {
-    margin: 0;
-    padding: 0;
-  }
+
   .grid-wrapper {
-    margin: 2rem 0;
     grid-template-columns: 1fr 1fr;
     margin: 0 auto;
     grid-template-areas:
@@ -396,12 +428,13 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:10px;
+    gap: 10px;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .container {
+    height:fit-content;
     margin: 150px 0;
   }
   .grid-wrapper {
@@ -409,7 +442,7 @@ section {
     width: 100vw;
     margin: 0 auto;
     padding: 3rem;
-    height: 100vh;
+    height: 100%;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
       "front back back languages"
@@ -426,7 +459,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:10px;
+    gap: 10px;
   }
 }
 </style>
