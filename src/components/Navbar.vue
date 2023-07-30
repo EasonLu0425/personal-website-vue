@@ -80,7 +80,7 @@ button {
 
 button a {
   text-decoration: none;
-  color: #e0e0e0;
+  color: white;
 }
 
 button:hover {

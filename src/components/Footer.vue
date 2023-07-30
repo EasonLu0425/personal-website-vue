@@ -39,6 +39,11 @@
   width: 100vw;
 }
 
+a{
+  color:white;
+;
+}
+
 @media screen and (min-width: 476px) {
   .together-text {
     text-align: center;

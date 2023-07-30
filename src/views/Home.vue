@@ -15,7 +15,7 @@
           <div class="name-bg"></div>
           <p class="name">Eason,</p>
         </div>
-        <div class="scroll" style="z-index:1">
+        <div class="scroll" style="z-index: 1">
           <svg
             width="40px"
             height="100%"
@@ -42,7 +42,7 @@
               style="fill: none; stroke: #fff; stroke-width: 20px"
             />
           </svg>
-          <div style="color: white" >Scroll down</div>
+          <div style="color: white">Scroll down</div>
         </div>
       </div>
     </section>
@@ -57,11 +57,39 @@
     </section>
     <section class="scroll-item intro-part" ref="introPart">
       <div class="intro">
-        <img
-          class="avatar"
-          src="https://images.unsplash.com/photo-1579546928686-286c9fbde1ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=639&q=80"
-          alt="圖片"
-        />
+        <div class="img-wrapper">
+          <svg
+            id="visual"
+            viewBox="0 0 675 900"
+            width="675"
+            height="900"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            version="1.1"
+          >
+            <!-- <rect x="0" y="0" width="675" height="900" fill="#041624"></rect> -->
+            <path
+              d="M460 0L459.2 18.8C458.3 37.7 456.7 75.3 461.8 112.8C467 150.3 479 187.7 478.8 225.2C478.7 262.7 466.3 300.3 466 337.8C465.7 375.3 477.3 412.7 469 450.2C460.7 487.7 432.3 525.3 422.8 562.8C413.3 600.3 422.7 637.7 422 675.2C421.3 712.7 410.7 750.3 428.2 787.8C445.7 825.3 491.3 862.7 514.2 881.3L537 900L0 900L0 881.3C0 862.7 0 825.3 0 787.8C0 750.3 0 712.7 0 675.2C0 637.7 0 600.3 0 562.8C0 525.3 0 487.7 0 450.2C0 412.7 0 375.3 0 337.8C0 300.3 0 262.7 0 225.2C0 187.7 0 150.3 0 112.8C0 75.3 0 37.7 0 18.8L0 0Z"
+              fill="#ff8420"
+            ></path>
+            <path
+              d="M379 0L382.7 18.8C386.3 37.7 393.7 75.3 384.3 112.8C375 150.3 349 187.7 349.5 225.2C350 262.7 377 300.3 379.8 337.8C382.7 375.3 361.3 412.7 355.8 450.2C350.3 487.7 360.7 525.3 381 562.8C401.3 600.3 431.7 637.7 438 675.2C444.3 712.7 426.7 750.3 420.3 787.8C414 825.3 419 862.7 421.5 881.3L424 900L0 900L0 881.3C0 862.7 0 825.3 0 787.8C0 750.3 0 712.7 0 675.2C0 637.7 0 600.3 0 562.8C0 525.3 0 487.7 0 450.2C0 412.7 0 375.3 0 337.8C0 300.3 0 262.7 0 225.2C0 187.7 0 150.3 0 112.8C0 75.3 0 37.7 0 18.8L0 0Z"
+              fill="#e56e18"
+            ></path>
+            <path
+              d="M222 0L241.2 18.8C260.3 37.7 298.7 75.3 313.5 112.8C328.3 150.3 319.7 187.7 309.8 225.2C300 262.7 289 300.3 278.8 337.8C268.7 375.3 259.3 412.7 259.7 450.2C260 487.7 270 525.3 282.2 562.8C294.3 600.3 308.7 637.7 308.7 675.2C308.7 712.7 294.3 750.3 276.5 787.8C258.7 825.3 237.3 862.7 226.7 881.3L216 900L0 900L0 881.3C0 862.7 0 825.3 0 787.8C0 750.3 0 712.7 0 675.2C0 637.7 0 600.3 0 562.8C0 525.3 0 487.7 0 450.2C0 412.7 0 375.3 0 337.8C0 300.3 0 262.7 0 225.2C0 187.7 0 150.3 0 112.8C0 75.3 0 37.7 0 18.8L0 0Z"
+              fill="#cb580f"
+            ></path>
+            <path
+              d="M216 0L213.2 18.8C210.3 37.7 204.7 75.3 201.5 112.8C198.3 150.3 197.7 187.7 200.5 225.2C203.3 262.7 209.7 300.3 205.5 337.8C201.3 375.3 186.7 412.7 175.7 450.2C164.7 487.7 157.3 525.3 158.2 562.8C159 600.3 168 637.7 173.2 675.2C178.3 712.7 179.7 750.3 189.3 787.8C199 825.3 217 862.7 226 881.3L235 900L0 900L0 881.3C0 862.7 0 825.3 0 787.8C0 750.3 0 712.7 0 675.2C0 637.7 0 600.3 0 562.8C0 525.3 0 487.7 0 450.2C0 412.7 0 375.3 0 337.8C0 300.3 0 262.7 0 225.2C0 187.7 0 150.3 0 112.8C0 75.3 0 37.7 0 18.8L0 0Z"
+              fill="#b14306"
+            ></path>
+            <path
+              d="M139 0L132 18.8C125 37.7 111 75.3 100 112.8C89 150.3 81 187.7 91 225.2C101 262.7 129 300.3 139.3 337.8C149.7 375.3 142.3 412.7 132 450.2C121.7 487.7 108.3 525.3 97.7 562.8C87 600.3 79 637.7 81 675.2C83 712.7 95 750.3 108.7 787.8C122.3 825.3 137.7 862.7 145.3 881.3L153 900L0 900L0 881.3C0 862.7 0 825.3 0 787.8C0 750.3 0 712.7 0 675.2C0 637.7 0 600.3 0 562.8C0 525.3 0 487.7 0 450.2C0 412.7 0 375.3 0 337.8C0 300.3 0 262.7 0 225.2C0 187.7 0 150.3 0 112.8C0 75.3 0 37.7 0 18.8L0 0Z"
+              fill="#972e00"
+            ></path>
+          </svg>
+        </div>
         <div class="intro-text-wrapper">
           <div class="text-container">
             <div class="intro-text first" ref="introTextFirst">
@@ -181,15 +209,17 @@ export default {
     gsap.set(".adj", { opacity: 0, y: 100 });
     const adjs = gsap.utils.toArray(".adj");
     const adjTL = gsap.timeline({ repeat: -1 });
+    const adjIn = { opacity: 1, y: -1, duration: 1 };
+    const adjOut = { opacity: 0, y: -100 };
     adjTL
-      .to(adjs[0], { opacity: 1, y: -1, duration: 1 })
-      .to(adjs[0], { opacity: 0, y: -100 })
-      .to(adjs[1], { opacity: 1, y: -1, duration: 1 })
-      .to(adjs[1], { opacity: 0, y: -100 })
-      .to(adjs[2], { opacity: 1, y: -1, duration: 1 })
-      .to(adjs[2], { opacity: 0, y: -100 })
-      .to(adjs[3], { opacity: 1, y: -10, duration: 1 })
-      .to(adjs[3], { opacity: 0, y: -100 });
+      .to(adjs[0], adjIn)
+      .to(adjs[0], adjOut)
+      .to(adjs[1], adjIn)
+      .to(adjs[1], adjOut)
+      .to(adjs[2], adjIn)
+      .to(adjs[2], adjOut)
+      .to(adjs[3], adjIn)
+      .to(adjs[3], adjOut);
 
     gsap.set(".me", { opacity: 0, x: -100 });
     if (screen >= 992) {
@@ -210,140 +240,33 @@ export default {
           pin: true,
         },
       });
+      const scrollIn = {
+        y: "0%",
+        opacity: "1",
+        duration: 1,
+      };
+      const scrollOut = {
+        y: "100%",
+        opacity: "0",
+        delay: 0.5,
+        duration: 1,
+      };
       scrollTL
-        .to(introTexts[0].children[0], {
-          y: "0%",
-          opacity: "1",
-          duration: 1,
-        })
-        .to(
-          introTexts[0].children[1],
-          {
-            y: "0%",
-            opacity: "1",
-            duration: 1,
-          },
-          "-=0.25"
-        )
-        .to(
-          introTexts[0].children[2],
-          {
-            y: "0%",
-            opacity: "1",
-            duration: 1,
-          },
-          "-=0.25"
-        )
-        .to(
-          introTexts[0].children[0],
-          {
-            y: "100%",
-            opacity: "0",
-            delay: 0.5,
-            duration: 1,
-          },
-          "-=0.25"
-        )
-        .to(
-          introTexts[1].children[0],
-          {
-            y: "0%",
-            opacity: "1",
-            duration: 1,
-          },
-          "-=0.25"
-        )
-        .to(
-          introTexts[0].children[1],
-          {
-            y: "100%",
-            opacity: "0",
-            duration: 1,
-          },
-          "-=0.25"
-        )
-        .to(
-          introTexts[1].children[1],
-          {
-            y: "0%",
-            opacity: "1",
-            duration: 1,
-          },
-          "-=0.25"
-        )
-        .to(
-          introTexts[0].children[2],
-          {
-            y: "100%",
-            opacity: "0",
-            duration: 1,
-          },
-          "-=0.25"
-        )
-        .to(
-          introTexts[1].children[2],
-          {
-            y: "0%",
-            opacity: "1",
-            duration: 1,
-          },
-          "-=0.25"
-        )
-        .to(
-          introTexts[1].children[0],
-          {
-            y: "100%",
-            opacity: "0",
-            delay: 1,
-            duration: 1,
-          },
-          "-=0.25"
-        )
-        .to(
-          introTexts[2].children[0],
-          {
-            y: "0%",
-            opacity: "1",
-            duration: 1,
-          },
-          "-=0.25"
-        )
-        .to(
-          introTexts[1].children[1],
-          {
-            y: "100%",
-            opacity: "0",
-            duration: 1,
-          },
-          "-=0.25"
-        )
-        .to(
-          introTexts[2].children[1],
-          {
-            y: "0%",
-            opacity: "1",
-            duration: 1,
-          },
-          "-=0.25"
-        )
-        .to(
-          introTexts[1].children[2],
-          {
-            y: "100%",
-            opacity: "0",
-            duration: 1,
-          },
-          "-=0.25"
-        )
-        .to(
-          introTexts[2].children[2],
-          {
-            y: "0%",
-            opacity: "1",
-            duration: 1,
-          },
-          "-=0.25"
-        );
+        .to(introTexts[0].children[0], scrollIn)
+        .to(introTexts[0].children[1], scrollIn, "-=0.25")
+        .to(introTexts[0].children[2], scrollIn, "-=0.25")
+        .to(introTexts[0].children[0], scrollOut, "-=0.25")
+        .to(introTexts[1].children[0], scrollIn, "-=0.25")
+        .to(introTexts[0].children[1], scrollOut, "-=0.25")
+        .to(introTexts[1].children[1], scrollIn, "-=0.25")
+        .to(introTexts[0].children[2], scrollOut, "-=0.25")
+        .to(introTexts[1].children[2], scrollIn, "-=0.25")
+        .to(introTexts[1].children[0], scrollOut, "-=0.25")
+        .to(introTexts[2].children[0], scrollIn, "-=0.25")
+        .to(introTexts[1].children[1], scrollOut, "-=0.25")
+        .to(introTexts[2].children[1], scrollIn, "-=0.25")
+        .to(introTexts[1].children[2], scrollOut, "-=0.25")
+        .to(introTexts[2].children[2], scrollIn, "-=0.25");
 
       givingWords.forEach((word) => {
         gsap.to(word, {
@@ -360,24 +283,16 @@ export default {
           start: "bottom bottom",
         },
       });
+      const meIn = {
+        opacity: 1,
+        x: 0,
+      };
 
       meTL
-        .to(".one", {
-          opacity: 1,
-          x: 0,
-        })
-        .to(".two", {
-          opacity: 1,
-          x: 0,
-        })
-        .to(".three", {
-          opacity: 1,
-          x: 0,
-        })
-        .to(".four", {
-          opacity: 1,
-          x: 0,
-        });
+        .to(".one", meIn)
+        .to(".two", meIn)
+        .to(".three", meIn)
+        .to(".four", meIn);
     } else {
       introTexts.forEach((introText) => {
         for (let i = 0; i < introText.children.length; i++) {
@@ -410,23 +325,16 @@ export default {
         },
       });
 
+      const meIn = {
+        opacity: 1,
+        x: 0,
+      };
+
       meTL
-        .to(".one", {
-          opacity: 1,
-          x: 0,
-        })
-        .to(".two", {
-          opacity: 1,
-          x: 0,
-        })
-        .to(".three", {
-          opacity: 1,
-          x: 0,
-        })
-        .to(".four", {
-          opacity: 1,
-          x: 0,
-        });
+        .to(".one", meIn)
+        .to(".two", meIn)
+        .to(".three", meIn)
+        .to(".four", meIn);
     }
   },
   components: {
@@ -529,6 +437,7 @@ section {
   animation-duration: 1s, 1.3s;
   animation-fill-mode: forwards, forwards;
   animation-delay: 0.02s, 0.5s;
+  z-index: 1;
 }
 
 .pics-wrapper img:nth-child(4) {
@@ -585,6 +494,7 @@ svg #wheel {
   position: relative;
   top: 0;
   height: auto;
+  height: 110vh;
   padding-bottom: 20vh;
   display: flex;
   flex-flow: column;
@@ -624,9 +534,10 @@ svg #wheel {
   flex-grow: 1;
   gap: 6rem;
   color: white;
+  width: 100vw;
 }
 
-.avatar {
+.img-wrapper svg {
   height: 100%;
   width: 100%;
 }
@@ -768,7 +679,7 @@ svg #wheel {
 @keyframes scatter3 {
   0% {
     opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 10%);
   }
   50% {
     opacity: 0;
@@ -847,6 +758,7 @@ svg #wheel {
 
 @keyframes headsup {
   0% {
+    opacity: 1;
     transform: translate3d(-50%, 100px, 0);
   }
   50% {

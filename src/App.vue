@@ -18,7 +18,9 @@ export default {
     Navbar,
   },
 };
+
 </script>
+
 
 <style lang="less">
 * {

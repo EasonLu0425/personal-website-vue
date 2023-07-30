@@ -1,414 +1,153 @@
 <template>
   <section class="container">
-    <h1 style="margin: 3rem">What I can provide</h1>
-    <h2>Front-End</h2>
-    <div class="front-end category">
-      <div class="skill-card">
-        <div class="percent" style="--clr: #f09819; --num: 75">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>75<span>%</span></h2>
-            <p>JavaScript</p>
+    <div class="grid-wrapper">
+      <div class="front-end category">
+        <h2 class="category-name">Front-End</h2>
+        <div class="skills">
+          <div class="skill-card" v-for="skill in frontEnd" :key="skill.name">
+            <div class="percent" style="--clr: #FF8303" :style="{'--num':skill.score}">
+              <div class="dot"></div>
+              <svg>
+                <circle cx="75" cy="75" r="70"></circle>
+                <circle cx="75" cy="75" r="70"></circle>
+              </svg>
+              <div class="number">
+                <h2>{{skill.score}}<span>%</span></h2>
+                <p>{{skill.name}}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #f09819; --num: 83">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>83<span>%</span></h2>
-            <p>HTML</p>
+      <div class="back-end category" style="color:black">
+        <h2 class="category-name">Back-End</h2>
+        <div class="skills">
+          <div class="skill-card" v-for="skill in backEnd" :key="skill.name">
+            <div class="percent" style="--clr: #A35709" :style="{'--num':skill.score}">
+              <div class="dot"></div>
+              <svg>
+                <circle cx="75" cy="75" r="70"></circle>
+                <circle cx="75" cy="75" r="70"></circle>
+              </svg>
+              <div class="number" >
+                <h2 style="color:black">{{skill.score}}<span style="color:black">%</span></h2>
+                <p style="color:black"> {{skill.name}}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #f09819; --num: 79">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>79<span>%</span></h2>
-            <p>CSS</p>
+      <div class="languages category">
+        <h2 class="category-name">Languages</h2>
+        <div class="skills">
+          <div class="skill-card" v-for="skill in languages" :key="skill.name">
+            <div class="percent" style="--clr: #F0E3CA" :style="{'--num':skill.score}">
+              <div class="dot"></div>
+              <svg>
+                <circle cx="75" cy="75" r="70"></circle>
+                <circle cx="75" cy="75" r="70"></circle>
+              </svg>
+              <div class="number">
+                <h2>{{skill.score}}<span>%</span></h2>
+                <p>{{skill.name}}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #f09819; --num: 75">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>75<span>%</span></h2>
-            <p>Sass/Scss</p>
+      <div class="soft-skills category">
+        <h2 class="category-name">Soft-Skills</h2>
+        <div class="skills">
+          <div class="skill-card" v-for="skill in softSkills" :key="skill.name">
+            <div class="percent" style="--clr: #F0E3CA" :style="{'--num':skill.score}">
+              <div class="dot"></div>
+              <svg>
+                <circle cx="75" cy="75" r="70"></circle>
+                <circle cx="75" cy="75" r="70"></circle>
+              </svg>
+              <div class="number">
+                <h2>{{skill.score}}<span>%</span></h2>
+                <p>{{skill.name}}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #f09819; --num: 70">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>70<span>%</span></h2>
-            <p>Vue.js</p>
+      <div class="other-skills category" style="color:black">
+        <h2 class="category-name">Other-Skills</h2>
+        <div class="skills">
+          <div class="skill-card" v-for="skill in otherSkills" :key="skill.name">
+            <div class="percent" style="--clr: #FF8303" :style="{'--num':skill.score}">
+              <div class="dot"></div>
+              <svg>
+                <circle cx="75" cy="75" r="70"></circle>
+                <circle cx="75" cy="75" r="70"></circle>
+              </svg>
+              <div class="number">
+                <h2 style="color:black">{{skill.score}}<span style="color:black">%</span></h2>
+                <p style="color:black">{{skill.name}}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #f09819; --num: 70">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>70<span>%</span></h2>
-            <p>React.js</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr />
-    <h2>Back-End</h2>
-    <div class="back-end category">
-      <div class="skill-card">
-        <div class="percent" style="--clr: #8ddaf9; --num: 75">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>75<span>%</span></h2>
-            <p>Node.js</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #8ddaf9; --num: 75">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>75<span>%</span></h2>
-            <p>Express.js</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #8ddaf9; --num: 70">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>70<span>%</span></h2>
-            <p>Mongo DB</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #8ddaf9; --num: 65">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>65<span>%</span></h2>
-            <p>My SQL</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #8ddaf9; --num: 73">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>73<span>%</span></h2>
-            <p>Github</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr />
-    <h2>Other-Skills</h2>
-    <div class="back-end category">
-      <div class="skill-card">
-        <div class="percent" style="--clr: #30cfd0; --num: 75">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>75<span>%</span></h2>
-            <p>Adobe PS</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #30cfd0; --num: 70">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>70<span>%</span></h2>
-            <p>Adobe AI</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #30cfd0; --num: 73">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>73<span>%</span></h2>
-            <p>Figma</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #30cfd0; --num: 73">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>73<span>%</span></h2>
-            <p>Indesign</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #30cfd0; --num: 83">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>83<span>%</span></h2>
-            <p>Office</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr>
-    <h2>Soft-Skills</h2>
-    <div class="soft-skills category">
-      <div class="skill-card">
-        <div class="percent" style="--clr: #d7d2cc; --num: 85">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>85<span>%</span></h2>
-            <p>Fast-learning</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #d7d2cc; --num: 80">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>80<span>%</span></h2>
-            <p>Communication</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #d7d2cc; --num: 84">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>84<span>%</span></h2>
-            <p>Time Management</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #d7d2cc; --num: 81">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>81<span>%</span></h2>
-            <p>Organization</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #d7d2cc; --num: 83">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>83<span>%</span></h2>
-            <p>adaptability</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #d7d2cc; --num: 79">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>79<span>%</span></h2>
-            <p>Planning</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #d7d2cc; --num: 86">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>86<span>%</span></h2>
-            <p>Problem-Solving</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #d7d2cc; --num: 93">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>93<span>%</span></h2>
-            <p>Integrity</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #d7d2cc; --num: 85">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>85<span>%</span></h2>
-            <p>Teamwork</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #d7d2cc; --num: 84">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>84<span>%</span></h2>
-            <p>Initiative</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr />
-    <h2>Languages</h2>
-    <div class="languages category">
-      <div class="skill-card">
-        <div class="percent" style="--clr: #ff5858; --num: 90">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>90<span>%</span></h2>
-            <p>English</p>
-          </div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="percent" style="--clr: #ff5858; --num: 70">
-          <div class="dot"></div>
-          <svg>
-            <circle cx="75" cy="75" r="70"></circle>
-            <circle cx="75" cy="75" r="70"></circle>
-          </svg>
-          <div class="number">
-            <h2>70<span>%</span></h2>
-            <p>German</p>
-          </div>
-        </div>
+      <div class="link">
+        <a href=""><img src="../images/github.svg" alt="github"></a>
+        <a href=""><img src="../images/instagram.svg" alt="ins"></a>
+        <a href=""><img src="../images/facebook.svg" alt="FB"></a>
+        <a href=""><img src="../images/linkedin.svg" alt="LI"></a>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+// import gsap from "gsap";
+// import ScrollTrigger from "gsap/dist/ScrollTrigger";
+// gsap.registerPlugin(ScrollTrigger);
 export default {
-  mounted() {
-    gsap.set(".category", {
-      opacity: 0,
-      transform: "translate(0, 100%)",
-    });
-    const categories = gsap.utils.toArray(".category");
-    categories.forEach((el) => {
-      gsap.to(el, {
-        opacity: 1,
-        transform: "translate(0,0)",
-        stagger: true,
-        scrollTrigger: {
-          trigger: el,
-          top: "top bottom",
-        },
-      });
-    });
+  data() {
+    return {
+      frontEnd: [
+        { id: 1, name: "JavaScript", score: 83 },
+        { id: 2, name: "HTML", score: 85 },
+        { id: 3, name: "Css", score: 84 },
+        { id: 4, name: "Sass/Scss", score: 80 },
+        { id: 5, name: "Vue.js", score: 75 },
+        { id: 6, name: "React.js", score: 75 },
+      ],
+      backEnd: [
+        { id: 1, name: "Node.js", score: 83 },
+        { id: 2, name: "Express.js", score: 81 },
+        { id: 3, name: "Mongo DB", score: 75 },
+        { id: 4, name: "My SQL", score: 75 },
+        { id: 5, name: "Github", score: 78 },
+        { id: 6, name: "RESTful API", score: 81 },
+      ],
+      otherSkills: [
+        { id: 1, name: "Adobe PS", score: 75 },
+        { id: 2, name: "Adobe AI", score: 70 },
+        { id: 3, name: "Figma", score: 73 },
+        { id: 4, name: "Adobe ID", score: 73 },
+        { id: 5, name: "MS Office", score: 83 },
+      ],
+      softSkills: [
+        { id: 1, name: "Fast-learning", score: 85 },
+        { id: 2, name: "Communication", score: 83 },
+        { id: 3, name: "Time Management", score: 84 },
+        { id: 4, name: "Organization", score: 81 },
+        { id: 5, name: "Adaptability", score: 83 },
+        { id: 6, name: "Planning", score: 83 },
+        { id: 7, name: "Problem-Solving", score: 86 },
+        { id: 8, name: "Integrity", score: 98 },
+        { id: 9, name: "Teamwork", score: 93 },
+        { id: 10, name: "Initiative", score: 86 },
+      ],
+      languages: [
+        { id: 1, name: "English", score: 90 },
+        { id: 2, name: "German", score: 75 },
+      ],
+    };
   },
 };
 </script>
@@ -422,20 +161,85 @@ section {
   color: white;
 }
 
+.grid-wrapper {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "front"
+    "back"
+    "languages"
+    "other"
+    "soft";
+  grid-gap: 1rem;
+}
+
+.front-end {
+  grid-area: front;
+  background: #0e1935;
+  border-radius: 15px;
+}
+
+.back-end {
+  grid-area: back;
+  background: #F0E3CA;
+  border-radius: 15px;
+}
+
+.other-skills {
+  grid-area: other;
+  background: #F0E3CA;
+  border-radius: 15px;
+}
+
+.soft-skills {
+  grid-area: soft;
+  background: #e87400;
+  border-radius: 15px;
+}
+
+.languages {
+  grid-area: languages;
+  background: #A35709;
+  border-radius: 15px;
+}
+
+.link {
+  grid-area: link;
+  display: none;
+  background: white;
+  border-radius: 15px;
+  color: black;
+}
+
+.link a img {
+  height:50px;
+  width:50px;
+}
+
 .category {
+  width: 100%;
+}
+
+.category-name {
+  margin: 2rem 2.5rem;
+}
+
+.skills {
+  margin: 1.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  gap: 1rem;
   justify-items: center;
+  grid-gap: 0.5rem;
+  text-align: center;
 }
 
-hr {
-  margin: 2rem;
-}
 
-.category .skill-card {
-  position: relative;
+.skill-card{
+  position:relative;
   width: 150px;
   height: 150px;
   color: black;
@@ -447,20 +251,20 @@ hr {
   align-items: center;
 }
 
-.category .skill-card .percent {
+.skill-card .percent {
   position: relative;
   width: 150px;
   height: 150px;
 }
 
-.category .skill-card .percent svg {
+.skill-card .percent svg {
   position: relative;
   width: 150px;
   height: 150px;
   transform: rotate(270deg);
 }
 
-.category .skill-card .percent svg circle {
+.skill-card .percent svg circle {
   width: 100%;
   height: 100%;
   fill: transparent;
@@ -469,7 +273,7 @@ hr {
   transform: translate(-1px, -3px);
 }
 
-.category .skill-card .percent svg circle:nth-child(2) {
+.skill-card .percent svg circle:nth-child(2) {
   stroke: var(--clr);
   stroke-dasharray: 440;
   stroke-dashoffset: calc(440 - (440 * var(--num)) / 100);
@@ -506,7 +310,7 @@ hr {
 .dot::before {
   content: "";
   position: absolute;
-  top: -7.5px;
+  top: -8px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 50%;
@@ -552,57 +356,77 @@ hr {
   color: white;
 }
 
-/* RWD */
+@media screen and (min-width: 426px) {
+}
+
 @media screen and (min-width: 768px) {
-  .category {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 1rem;
+  .container {
+    margin: 150px auto;
+    padding: 0;
+  }
+  .section {
+    margin: 0;
+    padding: 0;
+  }
+  .grid-wrapper {
+    margin: 2rem 0;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    grid-template-areas:
+      "front languages"
+      "front link"
+      "back back"
+      "other other"
+      "soft soft";
+    grid-gap: 0.8rem;
   }
 
-  .category .skill-card {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    color: black;
-    text-align: center;
-    line-height: 120px;
-    border-radius: 15px;
+  .other-skills > .skills {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .back-end > .skills {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .soft-skills > .skills {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .link {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .category .skill-card .percent {
-    position: relative;
-    width: 150px;
-    height: 150px;
-  }
-
-  .category .skill-card .percent svg {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    transform: rotate(270deg);
+    gap:10px;
   }
 }
 
-@media screen and (min-width: 996px) {
-  .category {
+@media screen and (min-width: 1200px) {
+  .container {
+    margin: 150px 0;
+  }
+  .grid-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 1rem;
+    width: 100vw;
+    margin: 0 auto;
+    padding: 3rem;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "front back back languages"
+      "front link soft soft"
+      "other other soft soft";
+    grid-gap: 1rem;
   }
 
-  .skill {
-    width: 150px;
-    height: 150px;
-    color: black;
-    text-align: center;
-    line-height: 150px;
-    border-radius: 15px;
+  .languages > .skills {
+    grid-template-columns: 1fr;
+  }
+
+  .link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
   }
 }
 </style>

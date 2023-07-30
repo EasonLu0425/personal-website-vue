@@ -155,7 +155,8 @@ section {
 }
 
 .company {
-  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  background: #e0e0e0;
+  -webkit-backdrop-filter: blur(15px);
   height: fit-content;
   border-radius: 20px;
   padding: 2rem;
