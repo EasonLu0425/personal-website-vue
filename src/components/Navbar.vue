@@ -2,7 +2,7 @@
   <nav>
     <div class="nav-wrapper">
       <div class="button-container">
-        <button class="logo" @click="closeNavbar">
+        <button class="logo" @click="closeNavbar" @mouseenter="onHover" @mouseleave="onLeave">
           <router-link :to="{ name: 'home' }">E</router-link>
         </button>
         <label
@@ -13,6 +13,8 @@
             display: flex;
             justify-content: center;
           "
+          @mouseover.stop.prevent="onHover"
+          @mouseleave="onLeave"
         >
           <input type="checkbox" v-model="navOpen" />
         </label>
@@ -33,6 +35,7 @@
       </div>
     </div>
     <div class="backdrop" :class="{ open: navOpen }"></div>
+
   </nav>
 </template>
 
@@ -50,6 +53,12 @@ export default {
     closeNavbar() {
       this.navOpen = false;
     },
+    onHover() {
+      this.$emit('handle-mouse-hover')
+    },
+    onLeave() {
+      this.$emit('handle-mouse-leave')
+    }
   },
 };
 </script>
@@ -191,6 +200,10 @@ button:hover {
   opacity: 1;
   pointer-events: auto;
 }
+
+
+
+
 
 @keyframes slideIn {
   from {
