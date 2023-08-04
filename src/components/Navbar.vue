@@ -8,7 +8,7 @@
           @mouseenter="onHover"
           @mouseleave="onLeave"
         >
-          <router-link :to="{ name: 'home' }">E</router-link>
+          <router-link :to="{ name: 'home' }"><img src="../assets/logo.svg" alt="logo"></router-link>
         </button>
         <label
           class="menu"
@@ -98,22 +98,19 @@ nav {
 .button-container {
   display: flex;
   position: relative;
+  height:100px;
 }
 
 button {
   all: unset;
   width: 100px;
   height: 100px;
+  position: absolute;
   text-align: center;
-  font-size: 40px;
-  font-weight: 800;
-  margin-left: 1rem;
+  left:10%;
+  top:10%;
+  /* border: 1px solid red; */
   transition: transform 0.8s ease-in;
-}
-
-button a {
-  text-decoration: none;
-  color: white;
 }
 
 button:hover {
