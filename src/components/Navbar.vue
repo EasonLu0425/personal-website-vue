@@ -175,7 +175,6 @@ button:hover {
   height: 100vh;
   width: 100%;
   position: absolute;
-  
 }
 
 .active {
@@ -204,7 +203,7 @@ button:hover {
 .link a:hover::before {
   content: ">>";
   color: white;
-  font-size: 13vh;
+  font-size: 10vh;
 }
 
 .backdrop {
@@ -217,7 +216,7 @@ button:hover {
   opacity: 0;
   pointer-events: none;
   z-index: -1;
-    transition: opacity 0.2s 0.3s;
+  transition: opacity 0.2s 0.3s;
 }
 
 .backdrop.open {
