@@ -181,8 +181,8 @@
 <script>
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Footer from "./../components/Footer.vue";
 gsap.registerPlugin(ScrollTrigger);
+import Footer from "./../components/Footer.vue";
 export default {
   mounted() {
     const introTexts = [

@@ -6,19 +6,26 @@
     />
     <div class="cursor" ref="cursor"></div>
     <body>
-      <router-view />
+      <transition name="fade" mode="out-in">
+        <router-view />
+      </transition>
     </body>
+    
+    <Footer/>
   </div>
 </template>
 
 <script>
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
 export default {
   name: "App",
   components: {
     Navbar,
+    Footer
   },
   methods: {
     handleMouseHover() {
@@ -84,12 +91,18 @@ body::-webkit-scrollbar {
   transition: transform 0.3s ease-in;
 }
 
-nav .navbar-wrapper .button-container:hover + .cursor {
-  transform: scale(6);
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 
-@media screen and (min-width:1024px) {
-  .cursor{
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-out;
+}
+
+@media screen and (min-width: 1024px) {
+  .cursor {
     display: block;
   }
 }

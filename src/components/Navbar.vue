@@ -2,7 +2,12 @@
   <nav>
     <div class="nav-wrapper">
       <div class="button-container">
-        <button class="logo" @click="closeNavbar" @mouseenter="onHover" @mouseleave="onLeave">
+        <button
+          class="logo"
+          @click="closeNavbar"
+          @mouseenter="onHover"
+          @mouseleave="onLeave"
+        >
           <router-link :to="{ name: 'home' }">E</router-link>
         </button>
         <label
@@ -21,21 +26,40 @@
       </div>
     </div>
     <div class="link-container" :class="{ active: navOpen }">
-      <div class="link" @click="closeNavbar">
+      <div
+        class="link"
+        @click="closeNavbar"
+        @mouseenter="onHover"
+        @mouseleave="onLeave"
+      >
         <router-link :to="{ name: 'skills' }">#Skills</router-link>
       </div>
-      <div class="link" @click="closeNavbar">
+      <div
+        class="link"
+        @click="closeNavbar"
+        @mouseenter="onHover"
+        @mouseleave="onLeave"
+      >
         <router-link :to="{ name: 'careers' }">#Careers</router-link>
       </div>
-      <div class="link" @click="closeNavbar">
+      <div
+        class="link"
+        @click="closeNavbar"
+        @mouseenter="onHover"
+        @mouseleave="onLeave"
+      >
         <router-link :to="{ name: 'academic' }">#Academic</router-link>
       </div>
-      <div class="link" @click="closeNavbar">
+      <div
+        class="link"
+        @click="closeNavbar"
+        @mouseenter="onHover"
+        @mouseleave="onLeave"
+      >
         <router-link :to="{ name: 'projects' }">#Projects</router-link>
       </div>
     </div>
     <div class="backdrop" :class="{ open: navOpen }"></div>
-
   </nav>
 </template>
 
@@ -54,11 +78,11 @@ export default {
       this.navOpen = false;
     },
     onHover() {
-      this.$emit('handle-mouse-hover')
+      this.$emit("handle-mouse-hover");
     },
     onLeave() {
-      this.$emit('handle-mouse-leave')
-    }
+      this.$emit("handle-mouse-leave");
+    },
   },
 };
 </script>
@@ -116,13 +140,12 @@ button:hover {
   width: 50px;
   height: 5px;
   background: white;
-  transform: rotate(0deg);
   transition: transform 0.5s;
 }
 .menu::before {
   position: absolute;
-  transform: scale(0, 1) rotate(0deg);
-  transition: transform 0.5s 0.5s;
+  transform: scale(0, 1);
+  transition: transform 0.4s 0.3s;
 }
 
 .menu input {
@@ -152,12 +175,13 @@ button:hover {
   height: 100vh;
   width: 100%;
   position: absolute;
-  transition: opacity 0.2s ease-in 0.5s, transform 0.2s ease-in 1s;
+  
 }
 
 .active {
   opacity: 1;
   transform: scale(1, 1);
+  transition: opacity 0.2s ease-in 0.5s, transform 0.2s ease-in 0.4s;
 }
 
 .link a {
@@ -174,10 +198,10 @@ button:hover {
 }
 
 .link:hover {
-  transform: translate(100px, 0);
+  transform: translate(30px, 0);
 }
 
-.link:hover::before {
+.link a:hover::before {
   content: ">>";
   color: white;
   font-size: 13vh;
@@ -192,18 +216,14 @@ button:hover {
   backdrop-filter: blur(20px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s 1s;
   z-index: -1;
+    transition: opacity 0.2s 0.3s;
 }
 
 .backdrop.open {
   opacity: 1;
   pointer-events: auto;
 }
-
-
-
-
 
 @keyframes slideIn {
   from {

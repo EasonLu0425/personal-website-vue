@@ -34,6 +34,8 @@
         </ul>
       </div>
     </div>
+    <div class="big-name ADATA">ADATA</div>
+    <div class="big-name SINYI">SINYI</div>
     <div class="company sinyi">
       <div class="company-name">
         <img src="../images/sinyi-logo.svg" alt="" class="sinyi-logo" />
@@ -73,6 +75,8 @@
 
 <script>
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 export default {
   mounted() {
     const adjs = gsap.utils.toArray("h1");
@@ -89,6 +93,32 @@ export default {
       .to(adjs[3], { opacity: 0 })
       .to(adjs[4], { opacity: 1, duration: 1 })
       .to(adjs[4], { opacity: 0 });
+    const companyTL = gsap.timeline();
+    companyTL
+      .from(".ADATA", {
+        duration: 0.5,
+        x: -100,
+        opacity: 0,
+        scrollTrigger: { trigger: ".ADATA", scrub: true },
+      })
+      .from(".adata", {
+        duration: 0.5,
+        x: -100,
+        opacity: 0,
+        scrollTrigger: { trigger: ".adata", scrub: true },
+      })
+      .from(".SINYI", {
+        duration: 0.5,
+        x: 100,
+        opacity: 0,
+        scrollTrigger: { trigger: ".SINYI", scrub: true },
+      })
+      .from(".sinyi", {
+        duration: 0.5,
+        x: 100,
+        opacity: 0,
+        scrollTrigger: { trigger: ".sinyi", scrub: true },
+      });
   },
 };
 </script>
@@ -96,8 +126,7 @@ export default {
 <style scoped>
 section {
   margin-top: 150px;
-  padding: 0 3rem;
-  height: auto;
+  padding: 0 0 3rem 0;
   width: 100vw;
   display: grid;
   grid-template-areas:
@@ -111,8 +140,9 @@ section {
 }
 
 .anim {
-  width: 100%;
-  height: 50vh;
+  margin:0;
+  width: 60vw;
+  height: 90vh;
   grid-area: anim;
   display: flex;
   justify-content: center;
@@ -150,8 +180,20 @@ section {
   grid-area: adata;
 }
 
+.ADATA {
+  display: none;
+  grid-area: ADATA;
+  color: white;
+}
+
 .sinyi {
   grid-area: sinyi;
+}
+
+.SINYI {
+  display: none;
+  grid-area: SINYI;
+  color: white;
 }
 
 .company {
@@ -196,8 +238,7 @@ section {
     grid-template-areas:
       "anim anim"
       "adata adata"
-      "sinyi sinyi"
-      "accom accom";
+      "sinyi sinyi";
   }
 
   .anim h1 {
@@ -210,13 +251,28 @@ section {
   section {
     grid-template-areas:
       "anim anim"
-      "adata sinyi"
-      "accom accom";
+      "adata adata"
+      "sinyi sinyi";
   }
 
   .anim h1 {
     font-size: 14vh;
     transform: translate(-40%, -50%);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  section {
+    grid-template-areas:
+      "anim anim"
+      "adata ADATA"
+      "SINYI sinyi";
+  }
+
+  .big-name {
+    display: flex;
+    font-size: 8vw;
+    align-items: center;
   }
 }
 </style>

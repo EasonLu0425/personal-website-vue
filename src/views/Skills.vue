@@ -138,7 +138,7 @@
 </template>
 
 <script>
-// import gsap from "gsap";
+import gsap from "gsap";
 // import ScrollTrigger from "gsap/dist/ScrollTrigger";
 // gsap.registerPlugin(ScrollTrigger);
 export default {
@@ -185,6 +185,13 @@ export default {
       ],
     };
   },
+  mounted() {
+    gsap.set('.category',{opacity:0, y:100} )
+    gsap.set('.skill-card', {opacity:0, x:-100})
+    const tl = gsap.timeline()
+    tl.to('.category', {duration:0.3, opacity:1,y:0, stagger:.2})
+    .to('.skill-card', {duration:0.5,opacity:1, x:0})
+  }
 };
 </script>
 
