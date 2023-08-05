@@ -1,18 +1,15 @@
 <template>
   <section class="container">
     <div class="bootcamp">
-      <div class="school-name alpha">Alpha Camp</div>
-      <div class="img-wrapper">
-        <img src="" alt="pic" />
-      </div>
       <div class="text-wrapper">
+        <div class="school-name alpha">Alpha Camp</div>
         <div class="degree">JavaScript全端開發課程</div>
         <div class="duration">01/2023~ 09/2023</div>
         <div class="description">
           <ul>
             <li>透過專案實作的方式學習全端開發的觀念及應用</li>
             <li>
-              學習運用React等框架實作CRUD功能、API串接、身分驗證及付費流程
+                學習運用React等框架實作CRUD功能、API串接、身分驗證及付費流程
             </li>
             <li>
               學習Express與MySQL，並學習資料設計、實測、AWS部署、架設API伺服器
@@ -21,13 +18,13 @@
           </ul>
         </div>
       </div>
+      <div class="img-wrapper">
+          <img src="" alt="pic" />
+      </div>
     </div>
     <div class="uni">
-      <div class="school-name ntpu">National Taipei University</div>
-      <div class="img-wrapper">
-        <img src="" alt="pic" />
-      </div>
       <div class="text-wrapper">
+        <div class="school-name alpha">National Taipei University</div>
         <div class="degree">應用外語學系</div>
         <div class="duration">09/2015~ 06/2019</div>
         <div class="description">
@@ -41,11 +38,14 @@
           </ul>
         </div>
       </div>
+      <div class="img-wrapper">
+          <img src="" alt="pic" />
+      </div>
     </div>
   </section>
 </template>
 
-<style scoped>
+<style sco｀ped>
 section {
   margin-top: 150px;
   padding-bottom: 100px;
