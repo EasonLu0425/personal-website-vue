@@ -99,11 +99,10 @@ export default {
       });
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: school,
+          trigger: duration,
           start: "center bottom",
           end: "start center",
           toggleActions: "play none none reverse",
-          markers: true,
         },
       });
       tl.to([schoolName, degree, duration, descriptionItems], {
@@ -123,25 +122,21 @@ section {
   color: white;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .bootcamp,
 .uni {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 1rem;
-  position: relative;
+  margin-bottom: 3rem;
 }
 
 .text-wrapper {
-  height: 100vh;
-  width: 50%;
-  position: sticky;
-  top: 0;
+  width: 100%;
   display: flex;
   flex-flow: column;
-  justify-content: space-around;
-  align-items: flex-start;
 }
 
 .school-name h2 {
@@ -196,16 +191,49 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 100%;
 }
 
 .img-wrapper img {
   height: 60vh;
   width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  object-fit: fill;
 }
 
 /* RWD */
 
 @media screen and (min-width: 768px) {
+  .bootcamp,
+  .uni {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+
+  .img-wrapper img {
+    height: 60vh;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    object-fit: cover;
+  }
 }
 </style>

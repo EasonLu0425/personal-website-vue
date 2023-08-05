@@ -130,14 +130,14 @@
                 Adaptability Extends Beyond the Workplace
               </div>
               <div class="intro-text-three">
-                My diverse background coupled with my newfound expertise in JavaScript,
-                reflects my passion for continuously challenging myself and
-                embracing new opportunities. I am driven by a desire to excel in
-                every endeavor I undertake, combining my analytical mindset,
-                interpersonal skills, and technical knowledge to drive positive
-                outcomes; looking forward to the opportunity to discuss how my
-                skills, experiences, and passion align with your organization's
-                vision and contribute to its continued success.
+                My diverse background coupled with my newfound expertise in
+                JavaScript, reflects my passion for continuously challenging
+                myself and embracing new opportunities. I am driven by a desire
+                to excel in every endeavor I undertake, combining my analytical
+                mindset, interpersonal skills, and technical knowledge to drive
+                positive outcomes; looking forward to the opportunity to discuss
+                how my skills, experiences, and passion align with your
+                organization's vision and contribute to its continued success.
               </div>
             </div>
           </div>
@@ -174,15 +174,14 @@
         </div>
       </div>
     </section>
-    <Footer />
   </div>
 </template>
 
 <script>
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 gsap.registerPlugin(ScrollTrigger);
-import Footer from "./../components/Footer.vue";
 export default {
   mounted() {
     const introTexts = [
@@ -336,9 +335,6 @@ export default {
         .to(".four", meIn);
     }
   },
-  components: {
-    Footer,
-  },
 };
 </script>
 
@@ -346,7 +342,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Manrope:wght@200;400;500;700&family=Noto+Sans:wght@500;700&family=Nunito+Sans:wght@400;700&display=swap");
 
 .scroll-container {
-  height: 400vh;
+  height: auto;
 }
 
 section {

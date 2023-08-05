@@ -99,25 +99,25 @@ export default {
         duration: 0.5,
         x: -100,
         opacity: 0,
-        scrollTrigger: { trigger: ".ADATA", scrub: true },
+        scrollTrigger: { trigger: ".ADATA", scrub: true, end:'bottom bottom' },
       })
       .from(".adata", {
         duration: 0.5,
         x: -100,
         opacity: 0,
-        scrollTrigger: { trigger: ".adata", scrub: true },
+        scrollTrigger: { trigger: ".adata", scrub: true, end:'bottom bottom' },
       })
       .from(".SINYI", {
         duration: 0.5,
         x: 100,
         opacity: 0,
-        scrollTrigger: { trigger: ".SINYI", scrub: true },
+        scrollTrigger: { trigger: ".SINYI", scrub: true, end:'bottom bottom' },
       })
       .from(".sinyi", {
         duration: 0.5,
         x: 100,
         opacity: 0,
-        scrollTrigger: { trigger: ".sinyi", scrub: true },
+        scrollTrigger: { trigger: ".sinyi", scrub: true, end:'bottom bottom' },
       });
   },
 };

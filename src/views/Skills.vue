@@ -262,7 +262,13 @@ section {
 .link a img {
   height: 50px;
   width: 50px;
+  transition: transform 0.2s ease-in;
 }
+
+.link a img:hover{
+  transform: scale(1.5);
+}
+
 
 .category {
   width: 100%;

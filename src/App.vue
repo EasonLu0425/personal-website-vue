@@ -10,8 +10,8 @@
         <router-view />
       </transition>
     </body>
-    
-    <Footer/>
+
+    <!-- <Footer/> -->
   </div>
 </template>
 
@@ -20,12 +20,12 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Navbar from "./components/Navbar.vue";
-import Footer from "./components/Footer.vue";
+// import Footer from './components/Footer.vue'
 export default {
   name: "App",
   components: {
     Navbar,
-    Footer
+    // Footer
   },
   methods: {
     handleMouseHover() {
