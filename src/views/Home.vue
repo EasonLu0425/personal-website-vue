@@ -144,7 +144,7 @@
         </div>
       </div>
     </section>
-    <section class="scroll-item contact-part">
+    <section class="scroll-item more-part">
       <div class="giving">
         <div class="giving-word here">I'm Here</div>
         <div class="giving-word give" ref="giving">To Give You</div>
@@ -174,98 +174,75 @@
         </div>
       </div>
     </section>
+    <section class="contact-part" ref="contactPart">
+      <div class="contact-part-container">
+        <div class="contact">
+          <h1 class="C">Contact</h1>
+          <h1 class="M">Me</h1>
+        </div>
+        <div class="Cpics-wrapper">
+          <img class="hero-pics c-pic p-one" src="../images/01.jpg" alt="01" />
+          <img class="hero-pics c-pic p-two" src="../images/02.jpg" alt="02" />
+          <img
+            class="hero-pics c-pic p-three"
+            src="../images/03.jpg"
+            alt="03"
+          />
+          <img class="hero-pics c-pic p-four" src="../images/04.jpg" alt="04" />
+          <img class="hero-pics c-pic p-five" src="../images/05.jpg" alt="05" />
+          <img class="hero-pics c-pic p-six" src="../images/06.jpg" alt="06" />
+          <img
+            class="hero-pics c-pic p-seven"
+            src="../images/07.jpg"
+            alt="07"
+          />
+        </div>
+        <div class="info">
+          <div class="email">
+            <a
+              href="mailto:easonlu0425@gmail.com?subject=I'm interested in hiring you!"
+              >easonlu0425@gmail.com</a
+            >
+          </div>
+          <div class="phone">(+886) 975-788-516</div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
 gsap.registerPlugin(ScrollTrigger);
 export default {
   mounted() {
-    const introTexts = [
-      this.$refs.introTextFirst,
-      this.$refs.introTextSecond,
-      this.$refs.introTextThird,
-    ];
-    const screen = window.innerWidth;
-    const givingWords = gsap.utils.toArray(".giving-word");
-    gsap.to(".name-part", {
-      filter: "blur(20px)",
-      duration: 1,
-      scrollTrigger: {
-        trigger: this.$refs.welcomePart,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
-    gsap.set(".giving-word", { opacity: 0, y: 100 });
-
-    gsap.set(".adj", { opacity: 0, y: 100 });
-    const adjs = gsap.utils.toArray(".adj");
-    const adjTL = gsap.timeline({ repeat: -1 });
-    const adjIn = { opacity: 1, y: -1, duration: 1 };
-    const adjOut = { opacity: 0, y: -100 };
-    adjTL
-      .to(adjs[0], adjIn)
-      .to(adjs[0], adjOut)
-      .to(adjs[1], adjIn)
-      .to(adjs[1], adjOut)
-      .to(adjs[2], adjIn)
-      .to(adjs[2], adjOut)
-      .to(adjs[3], adjIn)
-      .to(adjs[3], adjOut);
-
-    gsap.set(".me", { opacity: 0, x: -100 });
-    if (screen >= 992) {
-      introTexts.forEach((introText) => {
-        for (let i = 0; i < introText.children.length; i++) {
-          gsap.set(introText.children[i], {
-            y: "100%",
-            opacity: "0",
-          });
-        }
-      });
-      const scrollTL = gsap.timeline({
+    this.nameAnim();
+    this.introAnim();
+    this.meAnim();
+    this.contactAnim();
+  },
+  beforeDestroy() {
+    ScrollTrigger.killAll();
+  },
+  methods: {
+    nameAnim() {
+      const nameTL = gsap.timeline({
         scrollTrigger: {
-          trigger: ".intro-part",
+          trigger: this.$refs.welcomePart,
+          start: "top bottom",
+          end: "bottom top",
           scrub: true,
-          start: "top top",
-          end: "bottom+=1000 top",
-          pin: true,
         },
       });
-      const scrollIn = {
-        y: "0%",
-        opacity: "1",
+      nameTL.to(".name-part", {
+        filter: "blur(20px)",
         duration: 1,
-      };
-      const scrollOut = {
-        y: "100%",
-        opacity: "0",
-        delay: 0.5,
-        duration: 1,
-      };
-      scrollTL
-        .to(introTexts[0].children[0], scrollIn)
-        .to(introTexts[0].children[1], scrollIn, "-=0.25")
-        .to(introTexts[0].children[2], scrollIn, "-=0.25")
-        .to(introTexts[0].children[0], scrollOut, "-=0.25")
-        .to(introTexts[1].children[0], scrollIn, "-=0.25")
-        .to(introTexts[0].children[1], scrollOut, "-=0.25")
-        .to(introTexts[1].children[1], scrollIn, "-=0.25")
-        .to(introTexts[0].children[2], scrollOut, "-=0.25")
-        .to(introTexts[1].children[2], scrollIn, "-=0.25")
-        .to(introTexts[1].children[0], scrollOut, "-=0.25")
-        .to(introTexts[2].children[0], scrollIn, "-=0.25")
-        .to(introTexts[1].children[1], scrollOut, "-=0.25")
-        .to(introTexts[2].children[1], scrollIn, "-=0.25")
-        .to(introTexts[1].children[2], scrollOut, "-=0.25")
-        .to(introTexts[2].children[2], scrollIn, "-=0.25");
-
+      });
+    },
+    meAnim() {
+      const givingWords = gsap.utils.toArray(".giving-word");
+      gsap.set(".me", { opacity: 0, x: -100 });
       givingWords.forEach((word) => {
         gsap.to(word, {
           opacity: 1,
@@ -291,49 +268,116 @@ export default {
         .to(".two", meIn)
         .to(".three", meIn)
         .to(".four", meIn);
-    } else {
-      introTexts.forEach((introText) => {
-        for (let i = 0; i < introText.children.length; i++) {
-          gsap.set(introText.children[i], { y: "50%" });
-          ScrollTrigger.create({
-            trigger: introText.children[i],
-            start: "top 90%",
-            end: "top center",
+    },
+    introAnim() {
+      const introTexts = [
+        this.$refs.introTextFirst,
+        this.$refs.introTextSecond,
+        this.$refs.introTextThird,
+      ];
+
+      const screen = window.innerWidth;
+      gsap.set(".giving-word", { opacity: 0, y: 100 });
+
+      gsap.set(".adj", { opacity: 0, y: 100 });
+      const adjs = gsap.utils.toArray(".adj");
+      const adjTL = gsap.timeline({ repeat: -1 });
+      const adjIn = { opacity: 1, y: -1, duration: 1 };
+      const adjOut = { opacity: 0, y: -100 };
+      adjTL
+        .to(adjs[0], adjIn)
+        .to(adjs[0], adjOut)
+        .to(adjs[1], adjIn)
+        .to(adjs[1], adjOut)
+        .to(adjs[2], adjIn)
+        .to(adjs[2], adjOut)
+        .to(adjs[3], adjIn)
+        .to(adjs[3], adjOut);
+
+      if (screen >= 992) {
+        introTexts.forEach((introText) => {
+          for (let i = 0; i < introText.children.length; i++) {
+            gsap.set(introText.children[i], {
+              y: "100%",
+              opacity: "0",
+            });
+          }
+        });
+        const scrollTL = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".intro-part",
             scrub: true,
-            pinSpacing: 0,
-            onEnter: () => {
-              gsap.to(introText.children[i], { y: "0%", duration: 0.5 });
-            },
-          });
-        }
-      });
-      givingWords.forEach((word) => {
-        gsap.to(word, {
-          opacity: 1,
-          y: 0,
-          scrollTrigger: {
-            trigger: this.$refs.giving,
+            start: "top top",
+            end: "bottom+=1000 top",
+            pin: true,
           },
         });
-      });
-      const meTL = gsap.timeline({
+        const scrollIn = {
+          y: "0%",
+          opacity: "1",
+          duration: 1,
+        };
+        const scrollOut = {
+          y: "100%",
+          opacity: "0",
+          delay: 0.5,
+          duration: 1,
+        };
+        scrollTL
+          .to(introTexts[0].children[0], scrollIn)
+          .to(introTexts[0].children[1], scrollIn, "-=0.25")
+          .to(introTexts[0].children[2], scrollIn, "-=0.25")
+          .to(introTexts[0].children[0], scrollOut, "-=0.25")
+          .to(introTexts[1].children[0], scrollIn, "-=0.25")
+          .to(introTexts[0].children[1], scrollOut, "-=0.25")
+          .to(introTexts[1].children[1], scrollIn, "-=0.25")
+          .to(introTexts[0].children[2], scrollOut, "-=0.25")
+          .to(introTexts[1].children[2], scrollIn, "-=0.25")
+          .to(introTexts[1].children[0], scrollOut, "-=0.25")
+          .to(introTexts[2].children[0], scrollIn, "-=0.25")
+          .to(introTexts[1].children[1], scrollOut, "-=0.25")
+          .to(introTexts[2].children[1], scrollIn, "-=0.25")
+          .to(introTexts[1].children[2], scrollOut, "-=0.25")
+          .to(introTexts[2].children[2], scrollIn, "-=0.25");
+      } else {
+        introTexts.forEach((introText) => {
+          for (let i = 0; i < introText.children.length; i++) {
+            gsap.set(introText.children[i], { y: "50%" });
+            ScrollTrigger.create({
+              trigger: introText.children[i],
+              start: "top 90%",
+              end: "top center",
+              scrub: true,
+              pinSpacing: 0,
+              onEnter: () => {
+                gsap.to(introText.children[i], { y: "0%", duration: 0.5 });
+              },
+            });
+          }
+        });
+      }
+    },
+    contactAnim() {
+      gsap.set([".info", ".c-pic"], { scale: 0 });
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: ".me",
+          trigger: ".contact-part-container",
+          scrub: true,
           start: "bottom bottom",
+          end: "+=3000",
+          pin: ".contact-part",
         },
       });
-
-      const meIn = {
-        opacity: 1,
-        x: 0,
-      };
-
-      meTL
-        .to(".one", meIn)
-        .to(".two", meIn)
-        .to(".three", meIn)
-        .to(".four", meIn);
-    }
+      tl.to(".C", { x: -1500 })
+        .to(".M", { x: 1500 }, "-=")
+        .to(".p-three", { scale: 1, x: 100, y: -300, opacity: 0.5}, '-=')
+        .to(".p-one", { scale: 1, x: 250, y: 0, opacity: 0.5 }, '-=')
+        .to(".p-seven", { scale: 1, x: 180, y: 300, opacity: 0.5 }, '-=')
+        .to(".p-six", { scale: 1, x: -480, y: 10, opacity: 0.5 }, '-=')
+        .to(".p-four", { scale: 1, x: -300, y: 290, opacity: 0.5 }, '-=')
+        .to(".p-two", { scale: 1, x: -340, y: -270, opacity: 0.5 }, '-=')
+        .to(".info", { scale: 2 });
+    },
   },
 };
 </script>
@@ -562,7 +606,7 @@ svg #wheel {
   margin-left: 18vw;
 }
 
-.contact-part {
+.more-part {
   background-color: #000000;
   color: white;
   height: 100vh;
@@ -637,6 +681,55 @@ svg #wheel {
 .me a:hover {
   background: white;
   color: black;
+}
+
+.contact-part {
+  height: 100vh;
+  position: relative;
+  background-color: #000000;
+  display: flex;
+}
+
+.contact-part-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  position: sticky;
+  top: 0;
+}
+
+.contact {
+  text-align: center;
+  width: 100vw;
+}
+
+.contact h1 {
+  font-size: 14vh;
+  color: #e0e0e0;
+}
+
+.info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #e0e0e0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.email a {
+  text-decoration: none;
+  color: #e0e0e0;
+  border-bottom: 1px solid;
+}
+
+
+
+.c-pic {
+  transform: translate(-50%, -50%);
 }
 
 /* animation */
@@ -944,6 +1037,20 @@ svg #wheel {
   .exp {
     padding-left: 20vw;
   }
+
+  .contact h1 {
+    font-size: 20vw;
+    color: #e0e0e0;
+  }
+  .info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #e0e0e0;
+    font-size: 1.2rem;
+  }
+
 }
 
 @media screen and (max-width: 767px) and (min-width: 480px) {

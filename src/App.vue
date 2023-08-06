@@ -10,22 +10,20 @@
         <router-view />
       </transition>
     </body>
-
-    <!-- <Footer/> -->
   </div>
 </template>
 
 <script>
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import Navbar from "./components/Navbar.vue";
-// import Footer from './components/Footer.vue'
 export default {
   name: "App",
   components: {
     Navbar,
-    // Footer
   },
   methods: {
     handleMouseHover() {
@@ -38,6 +36,7 @@ export default {
     },
   },
   mounted() {
+    gsap.registerPlugin(ScrollTrigger);
     const cursor = this.$refs.cursor;
 
     const initialX = window.innerWidth / 2;
@@ -50,6 +49,10 @@ export default {
       cursor.style.left = e.clientX - 10 + "px";
       cursor.style.top = e.clientY - 10 + "px";
     });
+  },
+  beforeRouteUpdate(to, from, next) {
+    ScrollTrigger.killAll();
+    next();
   },
 };
 </script>
