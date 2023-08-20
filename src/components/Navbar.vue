@@ -94,7 +94,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100vw;
-  z-index: 10;
+  z-index: 999;
 }
 
 .button-container {
