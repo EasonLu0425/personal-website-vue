@@ -159,16 +159,16 @@
       <div class="more" ref="more">
         <h1>Learn More About Me</h1>
         <div class="me-container" ref="meContainer">
-          <div class="me one">
+          <div class="me one" @mouseenter="onHover" @mouseleave="onLeave">
             <router-link :to="{ name: 'skills' }">#Skills</router-link>
           </div>
-          <div class="me two">
+          <div class="me two" @mouseenter="onHover" @mouseleave="onLeave">
             <router-link :to="{ name: 'careers' }">#Careers</router-link>
           </div>
-          <div class="me three">
+          <div class="me three" @mouseenter="onHover" @mouseleave="onLeave">
             <router-link :to="{ name: 'academic' }">#Academic</router-link>
           </div>
-          <div class="me four">
+          <div class="me four" @mouseenter="onHover" @mouseleave="onLeave">
             <router-link :to="{ name: 'projects' }">#Projects</router-link>
           </div>
         </div>
@@ -198,7 +198,7 @@
           />
         </div>
         <div class="info">
-          <div class="email">
+          <div class="email" @mouseenter="onHover" @mouseleave="onLeave">
             <a
               href="mailto:easonlu0425@gmail.com?subject=I'm interested in hiring you!"
               >easonlu0425@gmail.com</a
@@ -370,13 +370,19 @@ export default {
       });
       tl.to(".C", { x: -1500 })
         .to(".M", { x: 1500 }, "-=")
-        .to(".p-three", { scale: 1, x: 100, y: -300, opacity: 0.5}, '-=')
-        .to(".p-one", { scale: 1, x: 250, y: 0, opacity: 0.5 }, '-=')
-        .to(".p-seven", { scale: 1, x: 180, y: 300, opacity: 0.5 }, '-=')
-        .to(".p-six", { scale: 1, x: -480, y: 10, opacity: 0.5 }, '-=')
-        .to(".p-four", { scale: 1, x: -300, y: 290, opacity: 0.5 }, '-=')
-        .to(".p-two", { scale: 1, x: -340, y: -270, opacity: 0.5 }, '-=')
+        .to(".p-three", { scale: 1, x: 100, y: -300, opacity: 0.5 }, "-=")
+        .to(".p-one", { scale: 1, x: 250, y: 0, opacity: 0.5 }, "-=")
+        .to(".p-seven", { scale: 1, x: 180, y: 300, opacity: 0.5 }, "-=")
+        .to(".p-six", { scale: 1, x: -480, y: 10, opacity: 0.5 }, "-=")
+        .to(".p-four", { scale: 1, x: -300, y: 290, opacity: 0.5 }, "-=")
+        .to(".p-two", { scale: 1, x: -340, y: -270, opacity: 0.5 }, "-=")
         .to(".info", { scale: 2 });
+    },
+    onHover() {
+      this.$emit("handle-mouse-hover");
+    },
+    onLeave() {
+      this.$emit("handle-mouse-leave");
     },
   },
 };
@@ -725,8 +731,6 @@ svg #wheel {
   border-bottom: 1px solid;
 }
 
-
-
 .c-pic {
   transform: translate(-50%, -50%);
 }
@@ -954,7 +958,6 @@ svg #wheel {
   }
 
   .me-container .me:hover {
-    cursor: pointer;
     background-color: white;
     color: #000000;
     backdrop-filter: blur(12px);
@@ -1049,7 +1052,6 @@ svg #wheel {
     color: #e0e0e0;
     font-size: 1.2rem;
   }
-
 }
 
 @media screen and (max-width: 767px) and (min-width: 480px) {

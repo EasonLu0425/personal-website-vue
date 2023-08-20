@@ -7,7 +7,10 @@
     <div class="cursor" ref="cursor"></div>
     <body>
       <transition name="fade" mode="out-in">
-        <router-view />
+        <router-view
+          @handle-mouse-hover="handleMouseHover"
+          @handle-mouse-leave="handleMouseLeave"
+        />
       </transition>
     </body>
   </div>
@@ -74,6 +77,13 @@ export default {
 
 body {
   background: #000000;
+  cursor: none;
+}
+
+button:hover,
+a:hover,
+label:hover {
+  cursor: none;
 }
 
 body::-webkit-scrollbar {
