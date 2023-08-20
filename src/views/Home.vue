@@ -3,13 +3,13 @@
     <section class="scroll-item name-part" id="namePart" ref="namePart">
       <div class="first-page">
         <div class="pics-wrapper">
-          <img class="hero-pics" src="../images/01.jpg" alt="01" />
-          <img class="hero-pics" src="../images/02.jpg" alt="01" />
-          <img class="hero-pics" src="../images/03.jpg" alt="01" />
-          <img class="hero-pics" src="../images/04.jpg" alt="01" />
-          <img class="hero-pics" src="../images/05.jpg" alt="02" />
-          <img class="hero-pics" src="../images/06.jpg" alt="03" />
-          <img class="hero-pics" src="../images/07.jpg" alt="04" />
+          <img class="hero-pics n-pic" src="../images/01.jpg" alt="01" />
+          <img class="hero-pics n-pic" src="../images/02.jpg" alt="01" />
+          <img class="hero-pics n-pic" src="../images/03.jpg" alt="01" />
+          <img class="hero-pics n-pic" src="../images/04.jpg" alt="01" />
+          <img class="hero-pics n-pic" src="../images/05.jpg" alt="02" />
+          <img class="hero-pics n-pic" src="../images/06.jpg" alt="03" />
+          <img class="hero-pics n-pic" src="../images/07.jpg" alt="04" />
         </div>
         <div class="name-wrapper">
           <div class="name-bg"></div>
@@ -217,6 +217,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 export default {
   mounted() {
+    this.scatterAnim();
     this.nameAnim();
     this.introAnim();
     this.meAnim();
@@ -226,6 +227,27 @@ export default {
     ScrollTrigger.killAll();
   },
   methods: {
+    scatterAnim() {
+      const pics = gsap.utils.toArray(".n-pic");
+      const showTL = gsap.timeline();
+      showTL
+        .to(pics, {
+          y: -100,
+          stagger: 0.02,
+          onComplete: () => {
+            gsap.to(pics, { opacity: 0, duration: 0.5 });
+          },
+        })
+        .to(".name-wrapper", { opacity: 1, duration: 0.5 })
+        .to(pics[0], { x: "-150%", y: "70%", opacity: 1 })
+        .to(pics[1], { x: "40%", y: "10%", opacity: 1 }, "<")
+        .to(pics[2], { x: "-100%", y: "-80%", opacity: 1 }, "<")
+        .to(pics[3], { x: "250%", y: "-20%", opacity: 1 }, "<")
+        .to(pics[4], { x: "-185%", y: "-190%", opacity: 1 }, "<")
+        .to(pics[5], { x: "-380%", y: "-50%", opacity: 1 }, "<")
+        .to(pics[6], { x: "80%", y: "-180%", opacity: 1 }, "<")
+        .to('.scroll', {opacity:1})
+    },
     nameAnim() {
       const nameTL = gsap.timeline({
         scrollTrigger: {
@@ -406,7 +428,7 @@ section {
 .first-page {
   position: relative;
   top: 0;
-  animation: nameup 1s forwards 0.5s;
+  /* animation: nameup 1s forwards 0.5s; */
   transform-style: preserve-3d;
   /* height: 200vh; */
 }
@@ -419,7 +441,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: backgroundup 1s forwards 0.5s;
+  /* animation: backgroundup 1s forwards 0.5s; */
   opacity: 0;
 }
 
@@ -463,62 +485,16 @@ section {
   object-fit: cover;
 }
 
-.pics-wrapper img:nth-child(1) {
-  animation-name: headsup, scatter1;
-  animation-duration: 1s, 1.3s;
-  animation-fill-mode: forwards, forwards;
-  animation-delay: 0s, 0.5s;
-}
-
 .pics-wrapper img:nth-child(2) {
-  animation-name: headsup, scatter2;
-  animation-duration: 1s, 1.3s;
-  animation-fill-mode: forwards, forwards;
-  animation-delay: 0.01s, 0.5s;
-}
-
-.pics-wrapper img:nth-child(3) {
-  animation-name: headsup, scatter3;
-  animation-duration: 1s, 1.3s;
-  animation-fill-mode: forwards, forwards;
-  animation-delay: 0.02s, 0.5s;
   z-index: 1;
 }
 
-.pics-wrapper img:nth-child(4) {
-  animation-name: headsup, scatter4;
-  animation-duration: 1s, 1.3s;
-  animation-fill-mode: forwards, forwards;
-  animation-delay: 0.03s, 0.5s;
-}
-
-.pics-wrapper img:nth-child(5) {
-  animation-name: headsup, scatter5;
-  animation-duration: 1s, 1.3s;
-  animation-fill-mode: forwards, forwards;
-  animation-delay: 0.03s, 0.5s;
-}
-
-.pics-wrapper img:nth-child(6) {
-  animation-name: headsup, scatter6;
-  animation-duration: 1s, 1.3s;
-  animation-fill-mode: forwards, forwards;
-  animation-delay: 0.03s, 0.5s;
-}
-
-.pics-wrapper img:nth-child(7) {
-  animation-name: headsup, scatter7;
-  animation-duration: 1s, 1.3s;
-  animation-fill-mode: forwards, forwards;
-  animation-delay: 0.03s, 0.5s;
-}
 
 .scroll {
   position: absolute;
   top: 70%;
   right: 15%;
   opacity: 0;
-  animation: backgroundup 1s forwards 2s;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -736,138 +712,6 @@ svg #wheel {
 }
 
 /* animation */
-
-@keyframes scatter1 {
-  0% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
-  }
-  50% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
-  }
-  100% {
-    transform: translate3d(-150%, 70%, -50px);
-  }
-}
-
-@keyframes scatter2 {
-  0% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
-  }
-  50% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
-  }
-
-  100% {
-    transform: translate3d(40%, 10%, -50px);
-    z-index: -1;
-  }
-}
-
-@keyframes scatter3 {
-  0% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 10%);
-  }
-  50% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
-  }
-
-  100% {
-    transform: translate3d(-100%, -80%, -50px);
-    z-index: -1;
-  }
-}
-
-@keyframes scatter4 {
-  0% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
-  }
-  50% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
-  }
-
-  100% {
-    transform: translate3d(250%, -20%, -50px);
-    z-index: -1;
-  }
-}
-
-@keyframes scatter5 {
-  0% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
-  }
-  50% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
-  }
-
-  100% {
-    transform: translate3d(-185%, -190%, -50px);
-    z-index: -1;
-  }
-}
-
-@keyframes scatter6 {
-  0% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
-  }
-  50% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
-  }
-
-  100% {
-    transform: translate3d(-380%, -50%, -50px);
-    z-index: -1;
-  }
-}
-
-@keyframes scatter7 {
-  0% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
-  }
-  50% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
-  }
-
-  100% {
-    transform: translate3d(80%, -180%, -50px);
-    z-index: -1;
-  }
-}
-
-@keyframes headsup {
-  0% {
-    opacity: 1;
-    transform: translate3d(-50%, 100px, 0);
-  }
-  50% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0);
-  }
-}
-
-@keyframes backgroundup {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 @keyframes scroll {
   0% {
     transform: translateY(0);
