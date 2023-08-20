@@ -67,7 +67,6 @@
             xmlns:xlink="http://www.w3.org/1999/xlink"
             version="1.1"
           >
-            <!-- <rect x="0" y="0" width="675" height="900" fill="#041624"></rect> -->
             <path
               d="M460 0L459.2 18.8C458.3 37.7 456.7 75.3 461.8 112.8C467 150.3 479 187.7 478.8 225.2C478.7 262.7 466.3 300.3 466 337.8C465.7 375.3 477.3 412.7 469 450.2C460.7 487.7 432.3 525.3 422.8 562.8C413.3 600.3 422.7 637.7 422 675.2C421.3 712.7 410.7 750.3 428.2 787.8C445.7 825.3 491.3 862.7 514.2 881.3L537 900L0 900L0 881.3C0 862.7 0 825.3 0 787.8C0 750.3 0 712.7 0 675.2C0 637.7 0 600.3 0 562.8C0 525.3 0 487.7 0 450.2C0 412.7 0 375.3 0 337.8C0 300.3 0 262.7 0 225.2C0 187.7 0 150.3 0 112.8C0 75.3 0 37.7 0 18.8L0 0Z"
               fill="#ff8420"
@@ -425,12 +424,16 @@ section {
   height: 100%;
 }
 
+.name-part {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
 .first-page {
   position: relative;
   top: 0;
-  /* animation: nameup 1s forwards 0.5s; */
   transform-style: preserve-3d;
-  /* height: 200vh; */
 }
 
 .name-wrapper {
@@ -441,7 +444,6 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* animation: backgroundup 1s forwards 0.5s; */
   opacity: 0;
 }
 
@@ -505,12 +507,6 @@ svg #wheel {
   animation: scroll ease 1.5s infinite;
 }
 
-.name-part {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-}
-
 .welcome-part {
   position: relative;
   top: 0;
@@ -521,6 +517,7 @@ svg #wheel {
   flex-flow: column;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 .welcome {
@@ -544,6 +541,7 @@ svg #wheel {
   position: relative;
   top: 0;
   background-color: #000000;
+  z-index: 10;
 }
 
 .intro {
@@ -593,6 +591,7 @@ svg #wheel {
   color: white;
   height: 100vh;
   position: relative;
+  z-index: 10;
 }
 
 .giving {
@@ -670,6 +669,7 @@ svg #wheel {
   position: relative;
   background-color: #000000;
   display: flex;
+  z-index: 10;
 }
 
 .contact-part-container {

@@ -112,7 +112,6 @@ button {
   text-align: center;
   left: 10%;
   top: 10%;
-  /* border: 1px solid red; */
   transition: transform 0.8s ease-in;
 }
 
