@@ -21,15 +21,20 @@
       <div class="description">
         <ul>
           <li>
-            維護各產品供應鏈，監督和管理產品的供應鏈。確保供應商按時交付，處理任何交貨延誤或品質問題。
-            其他部門（如物流、倉儲和生產）合作，確保供應鏈的順暢運作。
-          </li>
-          <li>其他部門（如物流、倉儲和生產）合作，確保供應鏈的順暢運作。</li>
-          <li>
-            監督和管理庫存水平，確保庫存充足且不過剩。根據需求預測和供應商交期進行庫存規劃，以確保產品的可用性。
+            <p class="responsibility">維護多個產品供應鏈:</p>
+            監督和管理全面的供應鏈，管理約130種物料及半成品，確保供應商準時交付，並迅速解決任何交貨延誤或品質問題。
           </li>
           <li>
-            與專案團隊合作開發新產品，居中協調處裡供應商的各項問題，確保時程依照專案進度執行。
+            <p class="responsibility">協同合作：</p>
+            積極協作與物流、倉儲和生產部門，確保供應鏈的順暢運作，並維持高效的協調。
+          </li>
+          <li>
+            <p class="responsibility">庫存管理專家：</p>
+            負責監督和管理庫存水平，並達到庫存優化，確保庫存充足且不過多。基於需求預測和供應商交期，制定庫存規劃，確保持續的產品供應。
+          </li>
+          <li>
+            <p class="responsibility">項目協調者：</p>
+            積極參與新產品開發專案，協調供應商事務，確保專案時程按計劃執行，並處理各種挑戰，並於半年內成功協助推動2項新產品的上市。
           </li>
         </ul>
       </div>
@@ -46,18 +51,25 @@
       <div class="description">
         <ul>
           <li>
-            開發潛在客戶，同時，評估物件的價值、條件和市場可行性，以提供客戶專業的建議。
+            <p class="responsibility">開發潛在客戶：</p>
+            成功拓展潛在客戶群，同時專業評估物件價值、條件和市場可行性，協助客戶做出明智的投資決策。
           </li>
           <li>
-            研究市場分析數據。利用市場分析和專業知識來評估房地產的價值，並提供買賣建議。
+            <p class="responsibility">市場分析專家：</p>
+            深諳市場分析數據，利用專業知識評估房地產價值，提供買賣建議。於2021年創造約400萬營業額，並四次獲得龍虎菁英榜，一次獲得業務區MVP的殊榮。
           </li>
           <li>
-            與客戶溝通、理解客戶需求，提供客戶適合的房地產選擇，並協助進行談判和交易條件協商。
+            <p class="responsibility">卓越的客戶服務：</p>
+            通過高效溝通，深入了解客戶需求，提供度身定制的房地產選擇，並協助談判與交易條件協商，2021年度滿意率約達97%。
           </li>
           <li>
-            透過網路、活動等行銷活動，搭配分析數據，以制定策略吸引潛在客戶並建立良好的業務聲譽。
+            <p class="responsibility">創新行銷策略：</p>
+            運用多渠道行銷，結合市場分析數據，成功吸引潛在客戶，同時建立卓越業務聲譽，提升團隊行銷活動舉辦率約4成。
           </li>
-          <li>監督交易進程，確保交易順利進行並按時完成。</li>
+          <li>
+            <p class="responsibility">交易管理專家：</p>
+            監督交易進程，確保交易順利進行並按時完成，離職前客戶申訴率為0%。
+          </li>
         </ul>
       </div>
     </div>
@@ -99,25 +111,25 @@ export default {
         duration: 0.5,
         x: -100,
         opacity: 0,
-        scrollTrigger: { trigger: ".ADATA", scrub: true, end:'bottom bottom' },
+        scrollTrigger: { trigger: ".ADATA", scrub: true, end: "bottom bottom" },
       })
       .from(".adata", {
         duration: 0.5,
         x: -100,
         opacity: 0,
-        scrollTrigger: { trigger: ".adata", scrub: true, end:'bottom bottom' },
+        scrollTrigger: { trigger: ".adata", scrub: true, end: "bottom bottom" },
       })
       .from(".SINYI", {
         duration: 0.5,
         x: 100,
         opacity: 0,
-        scrollTrigger: { trigger: ".SINYI", scrub: true, end:'bottom bottom' },
+        scrollTrigger: { trigger: ".SINYI", scrub: true, end: "bottom bottom" },
       })
       .from(".sinyi", {
         duration: 0.5,
         x: 100,
         opacity: 0,
-        scrollTrigger: { trigger: ".sinyi", scrub: true, end:'bottom bottom' },
+        scrollTrigger: { trigger: ".sinyi", scrub: true, end: "bottom bottom" },
       });
   },
 };
@@ -140,7 +152,7 @@ section {
 }
 
 .anim {
-  margin:0;
+  margin: 0;
   width: 60vw;
   height: 90vh;
   grid-area: anim;
@@ -229,6 +241,11 @@ section {
   color: white;
   width: 100%;
   border: 1px solid red;
+}
+
+.responsibility {
+  font-weight: 700;
+  margin-bottom: 0;
 }
 
 /* RWD */

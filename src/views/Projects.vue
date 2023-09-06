@@ -1,113 +1,122 @@
 <template>
-  <section id="container">
-    <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-      <img
-        class="image"
-        src="https://images.unsplash.com/photo-1524781289445-ddf8f5695861?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-        draggable="false"
-      />
-      <img
-        class="image"
-        src="https://images.unsplash.com/photo-1610194352361-4c81a6a8967e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80"
-        draggable="false"
-      />
-      <img
-        class="image"
-        src="https://images.unsplash.com/photo-1618202133208-2907bebba9e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-        draggable="false"
-      />
-      <img
-        class="image"
-        src="https://images.unsplash.com/photo-1495805442109-bf1cf975750b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-        draggable="false"
-      />
-      <img
-        class="image"
-        src="https://images.unsplash.com/photo-1548021682-1720ed403a5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-        draggable="false"
-      />
-      <img
-        class="image"
-        src="https://images.unsplash.com/photo-1496753480864-3e588e0269b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2134&q=80"
-        draggable="false"
-      />
-      <img
-        class="image"
-        src="https://images.unsplash.com/photo-1613346945084-35cccc812dd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1759&q=80"
-        draggable="false"
-      />
-      <img
-        class="image"
-        src="https://images.unsplash.com/photo-1516681100942-77d8e7f9dd97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-        draggable="false"
-      />
-    </div>
-    <div class="drag">
-      <svg
-        width="40px"
-        height="100%"
-        viewBox="0 0 247 390"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        style="
-          fill-rule: evenodd;
-          clip-rule: evenodd;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-          stroke-miterlimit: 1.5;
-        "
-      >
-        <path
-          id="wheel"
-          d="M123.359,79.775l0,72.843"
-          style="fill: none; stroke: #fff; stroke-width: 20px"
-        />
-        <path
-          id="mouse"
-          d="M236.717,123.359c0,-62.565 -50.794,-113.359 -113.358,-113.359c-62.565,0 -113.359,50.794 -113.359,113.359l0,143.237c0,62.565 50.794,113.359 113.359,113.359c62.564,0 113.358,-50.794 113.358,-113.359l0,-143.237Z"
-          style="fill: none; stroke: #fff; stroke-width: 20px"
-        />
-      </svg>
-      <div style="color: white">drag</div>
+  <section>
+    <div class="scroll-container">
+      <div class="title-container">
+        <div class="title" v-for="project in projects" :key="project.id">
+          <div class="title-wrapper">
+            <a href="" class="project-link">
+              <h4 class="project-name">{{ project.title }}/</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="image-container">
+        <div class="image-markers">
+          <div class="image" v-for="project in projects" :key="project.id">
+            <a href="">
+              <p>{{ project.image }}</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="des-container">
+        <div class="des-markers">
+          <div class="des" v-for="project in projects" :key="project.id">
+            <p class="des-text">{{ project.description }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-section {
+.scroll-container {
+  /* border: 1px solid red; */
   height: 100vh;
   width: 100vw;
-  background-color: black;
-  margin: 0rem;
+  position: relative;
   overflow: hidden;
-  position: sticky;
-  left: 0;
 }
 
-#image-track {
-  display: flex;
-  gap: 4vmin;
-  justify-content: space-between;
+.title-container {
   position: absolute;
-  left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-
+  left: 20%;
+  height: 10vh;
+  margin: 0;
+  transform: translate(0, -50%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 1;
 }
 
-#image-track > .image {
-  width: 40vmin;
-  height: 56vmin;
-  object-fit: cover;
-  object-position: center;
+.title {
+  position: relative;
+  height: 10vh;
+  width: 100%;
 }
 
-.drag {
+.title-wrapper {
+  width: 100%;
+}
+
+.project-name {
+  font-size: 7.8vh;
+  width: 100%;
+  mix-blend-mode: difference;
+}
+
+.image-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform: rotate(2deg);
+  margin: 0;
+  z-index: 0;
+}
+.image-markers {
   position: absolute;
-  bottom:8%;
-  right:10%;
+  top: 30%;
+  left: 50%;
 }
+
+.image {
+  position: relative;
+  border: 1px solid orange;
+  width: 300px;
+  height: 400px;
+  margin-bottom: 4rem;
+}
+
+.des-container {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.des-markers {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+}
+
+.des {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.des-text {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color:white
+}
+
 </style>
 
 <script>
@@ -118,66 +127,84 @@ gsap.registerPlugin(ScrollTrigger);
 export default {
   data() {
     return {
-      percentage: 0,
-      nextPercentage: 0,
-      prevPercentage: 0,
+      projects: [
+        {
+          id: 1,
+          title: "SplitWizard - 製作中",
+          image: "image 1",
+          description: "每次出遊，代墊多少錢弄得一團糟? 分帳小幫手來幫你清楚管理!",
+        },
+        {
+          id: 2,
+          title: "project 2",
+          image: "image 2",
+          description: "description 2",
+        },
+        {
+          id: 3,
+          title: "project 3",
+          image: "image 3",
+          description: "description 3",
+        },
+      ],
     };
   },
   mounted() {
-    const track = document.querySelector("#image-track");
-
-    const handleOnDown = (e) => (track.dataset.mouseDownAt = e.clientX);
-    const handleOnUp = () => {
-      track.dataset.mouseDownAt = "0";
-      track.dataset.prevPercentage = track.dataset.percentage;
-      this.prevPercentage = track.dataset.percentage;
-    };
-
-    const handleOnMove = (e) => {
-      if (track.dataset.mouseDownAt === "0") return;
-
-      const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-        maxDelta = window.innerWidth / 2;
-
-      const percentage = (mouseDelta / maxDelta) * -100,
-        nextPercentageUnconstrained =
-          parseFloat(track.dataset.prevPercentage) + percentage,
-        nextPercentage = Math.max(
-          Math.min(nextPercentageUnconstrained, 0),
-          -100
-        );
-
-      track.dataset.percentage = nextPercentage;
-      this.percentage = percentage;
-      this.nextPercentage = nextPercentage;
-
-      track.animate(
-        {
-          transform: `translate(${this.nextPercentage}%, -50%)`,
+    this.titleAnim();
+    this.imageAnim();
+    this.desAnim();
+  },
+  methods: {
+    titleAnim() {
+      const titleArr = gsap.utils.toArray(".title");
+      const yPercent = (titleArr.length - 1) * -100;
+      const titleTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".scroll-container",
+          scrub: true,
+          pin: ".scroll-container",
+          snap: [0, 0.3, 1],
         },
-        { duration: 1200, fill: "forwards" }
-      );
+      });
+      titleTL.to(titleArr, { yPercent: yPercent });
+    },
+    imageAnim() {
+      const imageArr = gsap.utils.toArray(".image");
+      const yPercent = (imageArr.length - 1) * -100;
+      const imageTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".image-container",
+          scrub: true,
+          pin: true,
+          ease: "power1.inOut",
+        },
+      });
+      imageTL
+        .fromTo(
+          imageArr,
+          { yPercent: 0, rotation: 10 },
+          { yPercent: yPercent, rotation: 6, stagger: 0.1 }
+        )
+        .to(imageArr, { y: -100 });
+    },
+    desAnim() {
+      const desArr = gsap.utils.toArray(".des");
 
-      for (const image of track.getElementsByClassName("image")) {
-        image.animate(
-          {
-            objectPosition: `${100 + this.nextPercentage}% center`,
-          },
-          { duration: 1200, fill: "forwards" }
-        );
-      }
-    };
-    window.onmousedown = (e) => handleOnDown(e);
+      gsap.set([desArr[1], desArr[2]], { opacity: 0 });
 
-    window.ontouchstart = (e) => handleOnDown(e.touches[0]);
-
-    window.onmouseup = (e) => handleOnUp(e);
-
-    window.ontouchend = (e) => handleOnUp(e.touches[0]);
-
-    window.onmousemove = (e) => handleOnMove(e);
-
-    window.ontouchmove = (e) => handleOnMove(e.touches[0]);
+      const desTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".des-container",
+          scrub: true,
+          pin: true,
+        },
+      });
+      desTL
+        .to(desArr[0], { opacity: 0 }, -1)
+        .to([desArr[1]], { opacity: 1 }, -1)
+        .to(desArr[1], { opacity: 0 })
+        .to(desArr[2], { opacity: 1 });
+    },
   },
 };
 </script>

@@ -23,6 +23,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import Navbar from "./components/Navbar.vue";
+    gsap.registerPlugin(ScrollTrigger);
 export default {
   name: "App",
   components: {
@@ -39,7 +40,6 @@ export default {
     },
   },
   mounted() {
-    gsap.registerPlugin(ScrollTrigger);
     const cursor = this.$refs.cursor;
 
     const initialX = window.innerWidth / 2;
@@ -77,14 +77,8 @@ export default {
 
 body {
   background: #000000;
-  cursor: none;
 }
 
-button:hover,
-a:hover,
-label:hover {
-  cursor: none;
-}
 
 body::-webkit-scrollbar {
   display: none;
