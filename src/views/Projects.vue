@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section data-barba="container">
     <div class="scroll-container">
       <div class="title-container">
         <div class="title" v-for="project in projects" :key="project.id">
@@ -132,7 +132,7 @@ export default {
           id: 1,
           title: "SplitWizard - 製作中",
           image: "image 1",
-          description: "每次出遊，代墊多少錢弄得一團糟? 分帳小幫手來幫你清楚管理!",
+          description: "每次出遊，代墊多少錢弄得一團糟?分帳小幫手來幫你清楚管理!",
         },
         {
           id: 2,

@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll-container">
+  <div class="scroll-container" data-barba="container">
     <section class="scroll-item name-part" id="namePart" ref="namePart">
       <div class="first-page">
         <div class="pics-wrapper">
@@ -215,6 +215,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 export default {
+  props: {
+    loaddone: Boolean,
+  },
   mounted() {
     this.scatterAnim();
     this.nameAnim();
@@ -228,11 +231,19 @@ export default {
   methods: {
     scatterAnim() {
       const pics = gsap.utils.toArray(".n-pic");
+      gsap.set(pics,{opacity:0})
+
       const showTL = gsap.timeline();
+      if (!this.loaddone) {
+        showTL.set({}, {delay:3})
+      } else {
+        showTL.set({}, {delay:0})
+      }
       showTL
         .to(pics, {
           y: -100,
           stagger: 0.02,
+          opacity:1,
           onComplete: () => {
             gsap.to(pics, { opacity: 0, duration: 0.5 });
           },

@@ -5,12 +5,25 @@
       @handle-mouse-leave="handleMouseLeave"
     />
     <div class="cursor" ref="cursor"></div>
-    <body>
+    <body data-barba="wrapper">
+      <header>
+        <!-- <ul class="transition">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul> -->
+        <div class="preloader">
+          <p class="preloader-text">Breathe Life</p><p class="preloader-text"> into</p><p class="preloader-text">Your Vision</p>
+        </div>
+      </header>
       <transition name="fade" mode="out-in">
-        <router-view
-          @handle-mouse-hover="handleMouseHover"
-          @handle-mouse-leave="handleMouseLeave"
-        />
+      <router-view
+        :loaddone="loaddone"
+        @handle-mouse-hover="handleMouseHover"
+        @handle-mouse-leave="handleMouseLeave"
+      />
       </transition>
     </body>
   </div>
@@ -23,7 +36,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import Navbar from "./components/Navbar.vue";
-    gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 export default {
   name: "App",
   components: {
@@ -38,8 +51,18 @@ export default {
       const cursor = this.$refs.cursor;
       cursor.style.transform = "scale(1)";
     },
+    preloaderAnim() {
+      const texts = gsap.utils.toArray('.preloader-text')
+      gsap.fromTo(texts, {y:200, opacity:0}, {y:0, opacity:1, stagger:1})
+    }
+  },
+  data() {
+    return {
+      loaddone: false, 
+    };
   },
   mounted() {
+    this.preloaderAnim()
     const cursor = this.$refs.cursor;
 
     const initialX = window.innerWidth / 2;
@@ -52,6 +75,19 @@ export default {
       cursor.style.left = e.clientX - 10 + "px";
       cursor.style.top = e.clientY - 10 + "px";
     });
+
+
+
+    window.addEventListener('load', () => {
+      window.scrollTo(0, 0)
+      this.loaddone = true
+      setTimeout(() => {
+        window.scrollTo(0, 0)
+        gsap.to('.preloader', {yPercent:200})
+            .to('.preloader', {opacity:0, scale:0})
+        
+      }, 3000);
+    })
   },
   beforeRouteUpdate(to, from, next) {
     ScrollTrigger.killAll();
@@ -75,10 +111,46 @@ export default {
   height: 100vh;
 }
 
+// ul.transition {
+//   display: flex;
+//   position: absolute;
+//   z-index: 10;
+//   height: 100vh;
+//   width: 100%;
+//   top: 0;
+//   left: 0;
+//   margin: 0;
+//   pointer-events: none;
+// }
+
+// ul.transition li {
+//   transform: scaleY(0);
+//   background: white;
+//   width: 20%;
+// }
+
+.preloader {
+  position: fixed;
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader-text {
+  font-size: 5vh;
+  margin: 0.5rem;
+}
+
 body {
   background: #000000;
 }
-
 
 body::-webkit-scrollbar {
   display: none;

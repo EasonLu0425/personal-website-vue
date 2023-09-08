@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="container" data-barba="container">
     <div class="bootcamp school">
       <div class="text-wrapper">
         <div class="school-name alpha">

@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="container" data-barba="container">
     <div class="grid-wrapper">
       <div class="front-end category">
         <h2 class="category-name">Front-End</h2>

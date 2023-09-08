@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="container" data-barba="container">
     <div class="anim">
       <div class="words">
         <div class="im" style="color: white">I'm</div>
