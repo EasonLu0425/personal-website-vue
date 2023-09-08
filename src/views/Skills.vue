@@ -191,7 +191,15 @@ export default {
     const tl = gsap.timeline()
     tl.to('.category', {duration:0.3, opacity:1,y:0, stagger:.2})
     .to('.skill-card', {duration:0.5,opacity:1, x:0})
-  }
+  },
+  beforeRouteUpdate(to, from, next) {
+    const allTweens = gsap.getAllTweens();
+    allTweens.forEach((tween) => {
+      tween.kill();
+    });
+
+    next();
+  },
 };
 </script>
 

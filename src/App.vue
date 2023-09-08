@@ -5,17 +5,12 @@
       @handle-mouse-leave="handleMouseLeave"
     />
     <div class="cursor" ref="cursor"></div>
-    <body data-barba="wrapper">
+    <body>
       <header>
-        <!-- <ul class="transition">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul> -->
         <div class="preloader">
-          <p class="preloader-text">Breathe Life</p><p class="preloader-text"> into</p><p class="preloader-text">Your Vision</p>
+          <p class="preloader-text">Breathe Life</p>
+          <p class="preloader-text">into</p>
+          <p class="preloader-text">Your Vision</p>
         </div>
       </header>
       <transition name="fade" mode="out-in">
@@ -34,7 +29,6 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
 import Navbar from "./components/Navbar.vue";
 gsap.registerPlugin(ScrollTrigger);
 export default {
@@ -52,17 +46,21 @@ export default {
       cursor.style.transform = "scale(1)";
     },
     preloaderAnim() {
-      const texts = gsap.utils.toArray('.preloader-text')
-      gsap.fromTo(texts, {y:200, opacity:0}, {y:0, opacity:1, stagger:1})
-    }
+      const texts = gsap.utils.toArray(".preloader-text");
+      gsap.fromTo(
+        texts,
+        { y: 200, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 1 }
+      );
+    },
   },
   data() {
     return {
-      loaddone: false, 
+      loaddone: false,
     };
   },
   mounted() {
-    this.preloaderAnim()
+    this.preloaderAnim();
     const cursor = this.$refs.cursor;
 
     const initialX = window.innerWidth / 2;
@@ -76,18 +74,15 @@ export default {
       cursor.style.top = e.clientY - 10 + "px";
     });
 
-
-
-    window.addEventListener('load', () => {
-      window.scrollTo(0, 0)
-      this.loaddone = true
+    window.addEventListener("load", () => {
+      window.scrollTo(0, 0);
+      this.loaddone = true;
       setTimeout(() => {
-        window.scrollTo(0, 0)
-        gsap.to('.preloader', {yPercent:200})
-            .to('.preloader', {opacity:0, scale:0})
-        
+        window.scrollTo(0, 0);
+        gsap.to(".preloader", { yPercent: 200 })
+        .to(".preloader", { opacity: 0, scale: 0 });
       }, 3000);
-    })
+    });
   },
   beforeRouteUpdate(to, from, next) {
     ScrollTrigger.killAll();
@@ -111,23 +106,23 @@ export default {
   height: 100vh;
 }
 
-// ul.transition {
-//   display: flex;
-//   position: absolute;
-//   z-index: 10;
-//   height: 100vh;
-//   width: 100%;
-//   top: 0;
-//   left: 0;
-//   margin: 0;
-//   pointer-events: none;
-// }
+ul.transition {
+  display: flex;
+  position: absolute;
+  z-index: 1000;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  pointer-events: none;
+}
 
-// ul.transition li {
-//   transform: scaleY(0);
-//   background: white;
-//   width: 20%;
-// }
+ul.transition li {
+  transform: scaleY(0);
+  background: white;
+  width: 20%;
+}
 
 .preloader {
   position: fixed;

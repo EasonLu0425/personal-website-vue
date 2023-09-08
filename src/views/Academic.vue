@@ -136,6 +136,14 @@ export default {
       }).to(mask, { scaleX: 0, transformOrigin: "right" });
     });
   },
+  beforeRouteUpdate(to, from, next) {
+    const allTweens = gsap.getAllTweens();
+    allTweens.forEach((tween) => {
+      tween.kill();
+    });
+
+    next();
+  },
 };
 </script>
 

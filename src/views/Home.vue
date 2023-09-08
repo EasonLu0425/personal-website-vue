@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll-container" data-barba="container">
+  <div class="scroll-container">
     <section class="scroll-item name-part" id="namePart" ref="namePart">
       <div class="first-page">
         <div class="pics-wrapper">

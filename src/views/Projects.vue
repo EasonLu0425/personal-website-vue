@@ -114,9 +114,8 @@
 
 a {
   text-decoration: none;
-  color:white
+  color: white;
 }
-
 </style>
 
 <script>
@@ -132,7 +131,8 @@ export default {
           id: 1,
           title: "SplitWizard - 製作中",
           image: "image 1",
-          description: "每次出遊，代墊多少錢弄得一團糟?分帳小幫手來幫你清楚管理!",
+          description:
+            "每次出遊，代墊多少錢弄得一團糟?分帳小幫手來幫你清楚管理!",
         },
         {
           id: 2,
@@ -205,6 +205,14 @@ export default {
         .to(desArr[1], { opacity: 0 })
         .to(desArr[2], { opacity: 1 });
     },
+  },
+  beforeRouteUpdate(to, from, next) {
+    const allTweens = gsap.getAllTweens();
+    allTweens.forEach((tween) => {
+      tween.kill();
+    });
+
+    next();
   },
 };
 </script>

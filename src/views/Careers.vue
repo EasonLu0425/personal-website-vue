@@ -132,6 +132,14 @@ export default {
         scrollTrigger: { trigger: ".sinyi", scrub: true, end: "bottom bottom" },
       });
   },
+  beforeRouteUpdate(to, from, next) {
+    const allTweens = gsap.getAllTweens();
+    allTweens.forEach((tween) => {
+      tween.kill();
+    });
+
+    next();
+  },
 };
 </script>
 
