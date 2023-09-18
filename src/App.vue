@@ -11,6 +11,12 @@
           <p class="preloader-text">Breathe Life</p>
           <p class="preloader-text">into</p>
           <p class="preloader-text">Your Vision</p>
+          <div class="loading">
+            <p>loading</p>
+            <p class="jumping-dots">.</p>
+            <p class="jumping-dots">.</p>
+            <p class="jumping-dots">.</p>
+          </div>
         </div>
       </header>
       <transition name="fade" mode="out-in">
@@ -47,11 +53,16 @@ export default {
     },
     preloaderAnim() {
       const texts = gsap.utils.toArray(".preloader-text");
+      const dots = gsap.utils.toArray('.jumping-dots')
+      gsap.set('.loading', {opacity:0})
+      gsap.set(dots,{opacity:0})
       gsap.fromTo(
         texts,
         { y: 200, opacity: 0 },
         { y: 0, opacity: 1, stagger: 1 }
       );
+      gsap.to('.loading', {opacity:1}, 3)
+      gsap.to(dots, {opacity:1, stagger:1, repeat:-1}, 3 )
     },
   },
   data() {
@@ -141,6 +152,16 @@ ul.transition li {
 .preloader-text {
   font-size: 5vh;
   margin: 0.5rem;
+}
+
+.loading {
+  position:absolute;
+  right:10%;
+  bottom:10%
+}
+
+.loading p {
+  display: inline;
 }
 
 body {
