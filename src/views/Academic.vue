@@ -44,7 +44,7 @@
         </div>
       </div>
       <div class="img-wrapper">
-        <img src="../images/alpha-cert-front.png" alt="pic" />
+        <img src="../images/alpha-cert.png" alt="pic" />
       </div>
     </div>
     <div class="uni school">

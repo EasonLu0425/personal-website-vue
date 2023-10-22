@@ -12,9 +12,9 @@
       </div>
       <div class="image-container">
         <div class="image-markers">
-          <div class="image" v-for="project in projects" :key="project.id">
-            <a href="">
-              <p>{{ project.image }}</p>
+          <div class="image" v-for="project in projects" :key="project.name">
+            <a :href="project.link">
+              <img class="imageFile" :src="project.image" alt="">
             </a>
           </div>
         </div>
@@ -88,6 +88,18 @@
   margin-bottom: 4rem;
 }
 
+.image a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.imageFile{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+
 .des-container {
   position: absolute;
   top: 0%;
@@ -105,11 +117,11 @@
 
 .des {
   position: absolute;
-  white-space: nowrap;
 }
 
 .des-text {
   color: white;
+  width:300px;
 }
 
 a {
@@ -121,6 +133,7 @@ a {
 <script>
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import splitWizard from '../images/splitWizard.png'
 
 gsap.registerPlugin(ScrollTrigger);
 export default {
@@ -130,9 +143,10 @@ export default {
         {
           id: 1,
           title: "SplitWizard - 製作中",
-          image: "image 1",
+          image: splitWizard,
+          link:"https://medium.com/@easonlu_85238/%E6%98%AF%E6%99%82%E5%80%99%E4%BD%BF%E7%94%A8%E9%AD%94%E6%B3%95%E4%BE%86%E5%88%86%E5%B8%B3%E4%BA%86-%E6%B7%BA%E8%AB%87split-wizard%E9%96%8B%E7%99%BC-bab181aab391",
           description:
-            "每次出遊，代墊多少錢弄得一團糟?分帳小幫手來幫你清楚管理!",
+            "啟發於一次旅遊經歷，以React和Express.js為基礎，打造了一個前後端分離的分帳軟體。我負責全端開發和專案管理，使用MySQL作為資料庫，同時整合Socket.io以實現即時通知系統。這個軟體允許使用者新增不同的旅遊行程，邀請旅伴加入，並提供自動結算款項的功能，讓分帳變得更加便捷。 ",
         },
         {
           id: 2,
